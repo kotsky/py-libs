@@ -17,11 +17,4 @@ bindNodes(four, five)
 linkedList.head = one
 linkedList.tail = five
 
-def printLinkedList(node):
-    print("None", end="<->")
-    while node is not None:
-        print(node.value, end="<->")
-        node = node.next
-    print("None")
-
 printLinkedList(linkedList.head)    # None<->1<->2<->3<->4<->5<->None
