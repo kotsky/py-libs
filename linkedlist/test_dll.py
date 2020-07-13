@@ -1,4 +1,5 @@
-from linkedlist import *
+# To test doubly_linked_list as dll
+from doubly_linked_list import *
 
 linkedList = DoublyLinkedList()
 one = Node(1)
