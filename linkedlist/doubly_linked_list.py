@@ -94,10 +94,11 @@ class DoublyLinkedList:
             node.next.prev = node.prev
         node.next = None
         node.prev = None
-    # node.value = None
+        # node.value = None
 
     def printLinkedList(self):
-        node = self.head
+        print("None", end="<->")
         while node is not None:
-            print(node.value, "<->")
+            print(node.value, end="<->")
             node = node.next
+        print("None")
