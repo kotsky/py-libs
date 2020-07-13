@@ -1,12 +1,15 @@
-
-# This is an input class. Do not edit.
 class Node:
     def __init__(self, value):
         self.value = value
         self.prev = None
         self.next = None
 
+        
+def bindNodes(nodeOne, nodeTwo):
+    nodeOne.next = nodeTwo
+    nodeTwo.prev = nodeOne
 
+    
 class DoublyLinkedList:
     def __init__(self):
         self.head = None
