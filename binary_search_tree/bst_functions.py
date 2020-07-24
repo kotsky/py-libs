@@ -49,26 +49,40 @@ def postOrderTraverse(tree, array):
 # binary tree (to have the minimal depth of the tree)
 # Input "array" - sorted array
 # Output "root" - root of the tree
+''' 
+# Version 1. O(nlog(n)) T / O(n) S
 def minHeightBst(array):
-    left = 0
-    right = len(array)-1
-    middle = (right + left)//2
-    root = BST(array[middle])
-    minHeightBstHelper(root, array[left:middle])
-    minHeightBstHelper(root, array[middle + 1:right+1])
-    return root
+    return minHeightBstHelper(None, array)
 
 def minHeightBstHelper(root, array):
-    if len(array) == 1:
-        root.insert(array[0])
-        return
-    elif len(array) < 1:
-        return
     left = 0
     right = len(array)-1
     value = (right + left) // 2
+    if root is None:
+        root = BST(array[value])
+    else:
+    	if len(array) == 1:
+		root.insert(array[0])
+		return
+	elif len(array) < 1:
+		return
     root.insert(array[value])
     minHeightBstHelper(root, array[left:value])
     minHeightBstHelper(root, array[value + 1:right+1])
+    return root
+'''
 
+# Version 2. O(n) TS
+def minHeightBst(array):
+    return minHeightBstHelper(array)
 
+def minHeightBstHelper(array):
+    if len(array) < 1:
+        return
+    start = 0
+    end = len(array)-1
+    value = (end + start) // 2
+    root = BST(array[value])
+    root.left = minHeightBstHelper(array[start:value])
+    root.right = minHeightBstHelper(array[value+1:end+1])
+    return root
