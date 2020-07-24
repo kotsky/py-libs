@@ -78,7 +78,7 @@ def minHeightBst(array):
 
 def minHeightBstHelper(array):
     if len(array) < 1:
-        return
+        return None
     start = 0
     end = len(array)-1
     value = (end + start) // 2
