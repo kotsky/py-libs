@@ -36,13 +36,13 @@ class Node:
 # each of those numbers (#job) has dependencies
 # as [[1, 2], [1, 3], [3, 2], [4, 2], [4, 3]] means #1 1 <- 2 etc..
 
-
+'''
 def createGraph(values, deps):
     graph = Graph(values)
     for dep, value in deps:
         graph.addDep(value, dep)
     return graph
-
+'''
 
 class Graph:
     def __init__(self, values):
@@ -50,6 +50,8 @@ class Graph:
         self.graph = {}
         for value in values:
             self.addNode(value)
+	for dep, value in deps:		# same as createGraph()
+            self.addDep(value, dep)
 
     def addNode(self, value):
         self.graph[value] = GraphNode(value)
