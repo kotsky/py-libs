@@ -7,7 +7,8 @@ Take a note, that in the end of each word you have {'*': 'wordIdx'}
 # O(s * n) TS, where s - len of the longest word, 
 # and n - len of the word's list
 
-class Tiers:
+
+class Trie:
 	def __init__(self, words):
 		self.root = {}
 		for wordIdx in range(len(words)):
@@ -20,6 +21,7 @@ class Tiers:
 			letter = word[i]
 			if letter not in node:
 				node[letter] = {}
-			node = node[letter]
+			
 			if i == len(word)-1:
 				node['*'] = wordIdx
+			node = node[letter]
