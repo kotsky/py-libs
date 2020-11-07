@@ -1,9 +1,8 @@
-# 3 Python Style Rules
+# Python 3 Style Rules
 
 Refer to https://google.github.io/styleguide/pyguide.html
 ## Naming
 `module_name`, `package_name`, `ClassName`, `method_name`, `ExceptionName`, `function_name`, `GLOBAL_CONSTANT_NAME`, `global_var_name`, `instance_var_name`, `function_parameter_name`, `local_var_name`.
-
 
 ## up to 80 chr in a line
 Of course, there might be some exception.
@@ -14,10 +13,11 @@ long long long long long long string')
 a = ('This will build a very long long '
      'long long long long long long string')
 ```
+```
       # See details at
       # http://www.example.com/us/developer/documentation/api/content/v2.0/csv_file_name_extension_full_specification.html
 ```
-```
+
 ## With as
 ```  
 Yes:  with very_long_first_expression_function() as spam, \
