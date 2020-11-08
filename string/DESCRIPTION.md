@@ -8,7 +8,7 @@ Time: O(N) / Space: O(N)
 ### Insert/Delete
 We create brand new string once we insert or delete any letter there.
 Time: O(N) / Space: O(N)
-###Search
+### Search
 Time: O(k) (k - index of letter) / Space: O(1)
 
 ## Some code
@@ -35,7 +35,7 @@ There are huge variety of tasks to compare letters in strings. Hash table are us
 - Find min number of operation to be done to get string2 from string1. DP method. [Min Number Of Edits](https://github.com/kotsky/programming-exercises/blob/master/Dynamic%20Programming/Min%20Number%20Of%20Edits.py)
 ### Compression
 Main idea here is often to split string, and then to build back with certain modification using .join method.
-- Convert 'Have a power in your soul' to 'Have%20a%20power%20in%20your%20soul'.
+- Convert 'Have a power in your soul' into 'Have%20a%20power%20in%20your%20soul'.
 - Compress sequence of same letters into shorter format like 'aaabb' to 'a3b2'. [Word Compression](https://github.com/kotsky/programming-exercises/blob/master/String/Word%20Compression.py)
 ### Rotation
 
