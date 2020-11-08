@@ -28,6 +28,6 @@ There are huge variety of tasks to compare letters in strings. Hash table are us
 - Find duplicates in a string.
 - Compare uniques of strings.
 ### Edits in strings
-- How many edits needs to perform to get same anagrama of string2 from string1? Example(https://github.com/kotsky/programming-exercises/blob/master/String/One%20Edit%20Or%20Less.py)
+- How many edits needs to perform to get same anagrama of string2 from string1? [Example](https://github.com/kotsky/programming-exercises/blob/master/String/One%20Edit%20Or%20Less.py)
   - Some anagramma tasks can be solved by sort all strings into alphabet order.
-- Find min number of operation to be done to get string2 from string1. DP method. Example(https://github.com/kotsky/programming-exercises/blob/master/Dynamic%20Programming/Min%20Number%20Of%20Edits.py)
+- Find min number of operation to be done to get string2 from string1. DP method. [Example](https://github.com/kotsky/programming-exercises/blob/master/Dynamic%20Programming/Min%20Number%20Of%20Edits.py)
