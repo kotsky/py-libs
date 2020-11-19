@@ -1,9 +1,44 @@
-'''
-Constant time search of the given key:value pair in LRUCache.
-LRUCache has a certain maxSize. If we exceed it, we have to delete 
-the oldest node and add our new node.
-Also, if we use some node, it has to become the most recent use.
-'''
+"""
+LRUCache is a class to save key-value pairs (pairs) and to track these pairs.
+Once quantity of pairs exceeds maxSize, the oldest pair will be deleted
+and after that new pair will be added. 
+
+Methods:
+	1. Create LRUCache: new_cache = LRUCache(10)  # 10 - maxSize
+	2. new_cache.insertKeyValuePair(key, value)   # Time O(1)
+	3. new_cache.getValueFromKey(key)			  # returns value of particular key - Time O(1)
+	4. new_cache.getMostRecentKey()				  # returns the most recent used key - Time O(1)
+	
+Implemented with Doubled LinkedList.
+
+Example:
+	
+	lruCache = LRUCache(1)
+	print(lruCache.getValueFromKey("a"))
+	lruCache.insertKeyValuePair("a", 1)
+	print(lruCache.getValueFromKey("a"))
+	lruCache.insertKeyValuePair("a", 9001)
+	print(lruCache.getValueFromKey("a"))
+	lruCache.insertKeyValuePair("b", 2)
+	print(lruCache.getValueFromKey("a"))
+	print(lruCache.getValueFromKey("b"))
+	lruCache.insertKeyValuePair("c", 3)
+	print(lruCache.getValueFromKey("a"))
+	print(lruCache.getValueFromKey("b"))
+	print(lruCache.getValueFromKey("c"))
+
+
+	# lruCache = LRUCache(4)
+	# lruCache.insertKeyValuePair("a", 1)
+	# lruCache.insertKeyValuePair("b", 2)
+	# lruCache.insertKeyValuePair("c", 3)
+	# lruCache.insertKeyValuePair("d", 4)
+	# print(lruCache.getValueFromKey("a"))
+	# lruCache.insertKeyValuePair("e", 5)
+	# print(lruCache.getValueFromKey("a"))
+	# print(lruCache.getValueFromKey("b"))
+	# print(lruCache.getValueFromKey("c"))
+"""
 
 class LRUCache:
     def __init__(self, maxSize):
@@ -89,30 +124,3 @@ class DLLNode:
         self.prev = None
         self.next = None
         # self.data = [self.value, self.prev_node, self.next_node]
-
-
-lruCache = LRUCache(1)
-print(lruCache.getValueFromKey("a"))
-lruCache.insertKeyValuePair("a", 1)
-print(lruCache.getValueFromKey("a"))
-lruCache.insertKeyValuePair("a", 9001)
-print(lruCache.getValueFromKey("a"))
-lruCache.insertKeyValuePair("b", 2)
-print(lruCache.getValueFromKey("a"))
-print(lruCache.getValueFromKey("b"))
-lruCache.insertKeyValuePair("c", 3)
-print(lruCache.getValueFromKey("a"))
-print(lruCache.getValueFromKey("b"))
-print(lruCache.getValueFromKey("c"))
-
-
-# lruCache = LRUCache(4)
-# lruCache.insertKeyValuePair("a", 1)
-# lruCache.insertKeyValuePair("b", 2)
-# lruCache.insertKeyValuePair("c", 3)
-# lruCache.insertKeyValuePair("d", 4)
-# print(lruCache.getValueFromKey("a"))
-# lruCache.insertKeyValuePair("e", 5)
-# print(lruCache.getValueFromKey("a"))
-# print(lruCache.getValueFromKey("b"))
-# print(lruCache.getValueFromKey("c"))
