@@ -45,7 +45,7 @@ You iterate LL with 2 pointers simultaneously, with one ahead other (fast and sl
 
 #### Find loop
 In your LL you might have a loop:
-![Picture](https://github.com/kotsky/py-libs/blob/master/linkedlist/LL internal loop.png)
+![Picture](https://github.com/kotsky/py-libs/blob/master/linkedlist/LL%20internal%20loop.png)
 To define it, start traversing with 2 pointers, where every 1 iteration 1st one has step 1 (slow pointer) and 2nd one has step 2 (fast pointer).
 If pointers meet at certain point (at node 2*N), then you will have a loop. Better to drawn it by yourself.
 Example: [Find a loop](https://github.com/kotsky/py-libs/blob/master/linked_list/Find%20Loop.py)
@@ -57,7 +57,7 @@ Example: [Find a loop](https://github.com/kotsky/py-libs/blob/master/linked_list
 Sometimes, when you need to rebuild LL based on some K value, it's nice to split LL onto 3 parts, build each separated LL (node.value < k), (node.value = k) and (node.value > k). Then, combine 3 parts into one finale LL.
 Be aware, that there might be duplicates or no existing of k value node.
 Example: [Rearrange LL](https://github.com/kotsky/py-libs/blob/master/linked_list/Rearrange%20Linked%20List.py)
-#### Palindrome
-Split linked list on 2 parts and check node by node. Example: [SLL Palindrome Check](https://github.com/kotsky/programming-exercises/tree/master/LinkedList/Linked List Palindrome.py)
+### Palindrome
+Split linked list on 2 parts and check node by node. Example: [SLL Palindrome Check](https://github.com/kotsky/programming-exercises/blob/master/LinkedList/Linked%20List%20Palindrome.py)
 
 
