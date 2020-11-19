@@ -1,10 +1,11 @@
 # Linked List (LL)
 Python implementation: [Singly Linked List](https://github.com/kotsky/py-libs/blob/master/linked_list/singly_linked_list.py) and [Doubly  Linked List](https://github.com/kotsky/py-libs/blob/master/linked_list/doubly_linked_list.py)
+
 There is an advice to keep track a LL head and LL tail no matter with LL you are using.
 The tail (tail.next) gives instant node appending in the end of LL.
 ###Visualisation: 
-Singly LL: `None->1->2->3->4->5->None`
-Doubly LL: `None<->1<->2<->3<->4<->5<->None`
+Singly LL (SLL): `None->1->2->3->4->5->None`
+Doubly LL (DLL): `None<->1<->2<->3<->4<->5<->None`
 
 ## Complexity
 ### Create/Copy
