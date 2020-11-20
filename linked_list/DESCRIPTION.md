@@ -36,6 +36,11 @@ Tips:
 - Update Head and Tail if needed.
 - A lot of problems can be solved in place (no extra memory use).
 
+### Sort
+There are 2 implemented sort methods:
+- bubble sort: Time O(N^2) / Space (1)
+- merge sort: Time O(N*log(N)) / Space (log(N))
+Refer to [singly_linked_list.py](https://github.com/kotsky/programming-exercises/blob/master/LinkedList/singly_linked_list.py)
 
 ### LRU Cahce
 Implementation of a [Least Recently Used cache](https://github.com/kotsky/py-libs/blob/master/linked_list/lru_cache.py), which was implemented with a doubly LL.
@@ -48,7 +53,7 @@ In your LL you might have a loop:
 ![Picture](https://github.com/kotsky/py-libs/blob/master/linkedlist/LL%20internal%20loop.png)
 To define it, start traversing with 2 pointers, where every 1 iteration 1st one has step 1 (slow pointer) and 2nd one has step 2 (fast pointer).
 If pointers meet at certain point (at node 2*N), then you will have a loop. Better to drawn it by yourself.
-Example: [Find a loop](https://github.com/kotsky/py-libs/blob/master/linked_list/Find%20Loop.py)
+Example: [Find a loop](https://github.com/kotsky/programming-exercises/edit/master/LinkedList/Find%20Loop.py)
 
 #### Factorial replacement
 `a1->a2->...->an->b1->..->bn` transform to `a1->b1->..->an->bn` - traverse with 2 pointers as in Find Loop above. When fast pointer hits the end point, slow pointer is at the middle. Then, return back fast pointer and do reassigning between slow and fast pointers.

@@ -5,33 +5,29 @@ In this file Singly Linked List (SLL) is presented with the following methods:
     3. To generate random SLL with user's size: ll.generateRandomSinglyLinkedList(size)
     4. To print SLL: ll.printLinkedList()
     5. To sort SLL without memory usage: ll.sortBubble()   # O(N^2) worst Time / O(1) Space
-    6. To remove duplicates without memory usage: ll.removeDuplicatesWithNoMemoryUsage()
-    # O(N^2) worst Time / O(1) Space
-    7. To remove duplicates in optimal way: ll.removeDuplicates()   # O(N) Time / Space
-    8. Merge Sort Algorithm: ll.sortMerge()  # O(N*log(N)) Time / O(log(N)) Space
+    6. Merge Sort Algorithm: ll.sortMerge()  # O(N*log(N)) Time / O(log(N)) Space
 
 Example:
     ll = SinglyLinkedList()
     ll.generateRandomSinglyLinkedList(10)
     ll.printLinkedList()
-    ll.removeDuplicatesWithNoMemoryUsage()
+    ll.sortBubble()
     ll.printLinkedList()
-
+    
     kk = SinglyLinkedList()
     kk.generateRandomSinglyLinkedList(10)
     kk.printLinkedList()
-    kk.removeDuplicates()
+    kk.sortMerge()
     kk.printLinkedList()
 """
 
 
-class LinkedListNode:
-    def __init__(self, value):
-        self.value = value
-        self.next = None
-
-
 class SinglyLinkedList:
+    class LinkedListNode:
+        def __init__(self, value):
+            self.value = value
+            self.next = None
+
     def __init__(self):
         self.head = None
         self.tail = None
@@ -46,7 +42,7 @@ class SinglyLinkedList:
         self.is_sorted = False
 
     def addNode(self, value):
-        node = LinkedListNode(value)
+        node = self.LinkedListNode(value)
         if self.head is None:
             self.head = node
             self.tail = node
@@ -96,44 +92,6 @@ class SinglyLinkedList:
                     is_sorted = False
                 node = node.next
         self.is_sorted = True
-
-    # Sort and use property of sorted array.
-    # Time O(N^2) worst / Space O(1)
-    def removeDuplicatesWithNoMemoryUsage(self):
-        if self.head is None:
-            print("There is not Linked List to sort. Please, add nodes")
-            return
-        if self.is_sorted is False:
-            self.sortBubble()
-        node = self.head.next
-        prev_node = self.head
-        while node is not None:
-            if prev_node.value == node.value:
-                node = self.removeInLine(prev_node, node)
-            else:
-                node = node.next
-                prev_node = prev_node.next
-
-    # Use hast table to track same values.
-    # Time O(N) worst / Space O(n), where n - number of unique values
-    def removeDuplicates(self, clean_memo=False):
-        if self.head is None:
-            return
-        table_of_nodes = {}
-        node = self.head.next
-        prev_node = self.head
-        table_of_nodes[prev_node.value] = True
-        while node is not None:
-            if node.value in table_of_nodes:
-                node = self.removeInLine(prev_node, node)
-            else:
-                table_of_nodes[node.value] = True
-                node = node.next
-                prev_node = prev_node.next
-
-        if clean_memo:
-            for key in table_of_nodes:
-                del table_of_nodes[key]
 
     def sortMerge(self):
         if self.is_sorted:
@@ -191,5 +149,4 @@ class SinglyLinkedList:
                 fast.next.next is not None:
             slow = slow.next
             fast = fast.next.next
-
         return slow
