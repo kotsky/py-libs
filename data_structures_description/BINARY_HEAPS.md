@@ -4,13 +4,13 @@ In Min-Heap parent node has lower value than its child nodes. But in Max-Heap ch
 Its implementation done by using an array structure: [Heaps](https://github.com/kotsky/py-libs/blob/master/data_structures/heaps.py)
 
 Follow methods are implemented:
-	- Build Min-Heap from an any array with integers
-	- peek() - check root of heap
-	- pop(idx) - remove value at `idx`
-	- insert() - insert value into that heap
-	- printHeap() - print that heap
-	- siftUp() - move element up to the root if posiible (for heap updates)
-	- siftDown() - move element down from the root if possible (for heap updates)
+- Build Min-Heap from an any array with integers
+- peek() - check root of heap
+- pop(idx) - remove value at `idx`
+- insert() - insert value into that heap
+- printHeap() - print that heap
+- siftUp() - move element up to the root if posiible (for heap updates)
+- siftDown() - move element down from the root if possible (for heap updates)
 
 ### Complexity
 #### Create
@@ -19,8 +19,8 @@ Time: O(N) - math reason / Space: O(N)
 Time: O(log(N)) / Space: O(1)
 
 The attitude between children and parent nodes with array implementation are as follows:
-	- `parent_index = (child_index - 1) // 2`
-	- `child_one_index = 2 * parent_index + 1` and `child_two_index = 2 * parent_index + 2`
+- `parent_index = (child_index - 1) // 2`
+- `child_one_index = 2 * parent_index + 1` and `child_two_index = 2 * parent_index + 2`
 	
 The picture below shows attitude on Max-Heap example:
 ![Picture](https://github.com/kotsky/py-libs/blob/master/additional_data/pictures/heap_representing.png)

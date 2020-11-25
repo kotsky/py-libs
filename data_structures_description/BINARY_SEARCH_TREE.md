@@ -19,6 +19,6 @@ Besides that, Balanced Binary Tree has log(N) depth, and not-balanced tree might
 
 ### BST Algorithms / Problems
 There are the follows:
-	- [Traversal methods](https://github.com/kotsky/py-libs/blob/master/algorithms/binary_tree_traversal.py)
-	- BST validation
-	- Find out the min depth from a sorted array
+- [Traversal methods](https://github.com/kotsky/py-libs/blob/master/algorithms/binary_tree_traversal.py)
+- BST validation
+- Find out the min depth from a sorted array
