@@ -9,11 +9,11 @@ The following data structures are described and implemented:
 #### LRU Cache
 [LRU Cache implementation](https://github.com/kotsky/py-libs/blob/master/data_structures/cache_strategies/lru_cache.py)
 Methods:
-	- create with user's desired size
-	- insert key-value pair
-	- get value from key
-	- get most recent key
-	
+- create with user's desired size
+- insert key-value pair
+- get value from key
+- get most recent key
+##
 ## String
 [String description](https://github.com/kotsky/py-libs/blob/master/data_structures_description/STRING.md)
 
