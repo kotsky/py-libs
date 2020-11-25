@@ -1,0 +1,20 @@
+string 
+	- Aho-corasik Algo
+	- correct later With Tree section to point to multi string searches
+tree 
+	- heap
+		1) write formulars from my notes: childs vs parents
+	- Fenwik Tree
+	- Segment Tree Data Structure
+	
+graph - full
+
+
+bst descr - update problem links
+
+heaps descr - update merge sorted arrays links
+
+binary index tree - TBD
+segment tree - TBD
+
+to_be_updated_algo -> to use for algo description and clustering

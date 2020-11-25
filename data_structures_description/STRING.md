@@ -33,15 +33,18 @@ Hold in your mind follows:
 - Majority of usage is Ascii table.
 
 ### Number conversion
-- [Roman to Integer](https://github.com/kotsky/programming-exercises/edit/master/String/Roman%20To%20Integer.py): create LUT for pattern searching. If there is no respective number in LUT, then we deal with new part of the number.
+- [Roman to Integer](https://github.com/kotsky/programming-exercises/blob/master/String/Roman%20To%20Integer.py): create LUT for pattern searching. If there is no respective number in LUT, then we deal with new part of the number.
 
 ### Search in string
 
-#### [Knuth Morris Pratt Algorithm](https://github.com/kotsky/py-libs/blob/master/string/knuth_morris_pratt.py)
+#### [Knuth Morris Pratt Algorithm](https://github.com/kotsky/py-libs/blob/master/algorithms/knuth_morris_pratt.py)
 Find if `substring` is in `string` in O(M + N) Time and O(M) space, where M is length of substring, and N is length of string.
 
 #### Aho-Corasick Algorithm	[TBD]
 Find if `substring` is in `vocablary`, where `vocablary = [string_one, string_two, ...]` in O(M + N + Z) Time / ??? Space.
+
+#### With Tries
+Tries are in the use for certain searching problems. Go theck [Tries Usage](https://github.com/kotsky/py-libs/blob/master/tree/tries_functions.py)
 
 ### Unique letters
 There are huge variety of tasks to compare letters in strings. Hash table are used widely for such topics:

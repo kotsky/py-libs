@@ -1,3 +1,31 @@
+"""Binary Search Tree
+
+In this tree each node has max 2 childs and 
+following condition is applied 
+`node.left.value < node.value <= node.right.value`.
+
+Methods:
+	bst = BST(value)
+	bst.insert(value)
+	bst.contains(value) - check if that value is in bst
+	bst.remove(value)
+	min_value = bst.getMinValue() - get min value from that bst
+
+Example:
+	root = BST(10)
+	root.left = BST(5)
+	root.left.left = BST(2)
+	root.left.left.left = BST(1)
+	root.left.right = BST(5)
+	root.right = BST(15)
+	root.right.left = BST(13)
+	root.right.left.right = BST(14)
+	root.right.right = BST(22)
+	root.insert(12)
+	root.remove(10)
+"""
+
+
 class BST:
     def __init__(self, value):
         self.value = value
