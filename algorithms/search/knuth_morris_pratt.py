@@ -1,9 +1,9 @@
 """	Find if string1 is in string 2
 
 Knuth Morris Pratt Algorithm aims to define if "string" contains "substring"
-in O(n + m) time and O(m) space complexity, where
-n - len(string)
-m - len(substring)
+in O(N + M) time and O(M) space complexity, where
+N - len(string)
+M - len(substring)
 	1. Substring:
 		  1) Define patterns in the substring. Create array patterns to save indexes of 
 		  found patterns (p) before, else '-1'.
