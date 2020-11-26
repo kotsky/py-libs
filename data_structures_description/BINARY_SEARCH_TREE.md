@@ -12,7 +12,9 @@ class Tree:
 		self.root = Node(value)
 ```
 ![Picture](https://github.com/kotsky/py-libs/blob/master/additional_data/pictures/bst_vs_not_bst.png)
+
 Besides that, Balanced Binary Tree has log(N) depth, and not-balanced tree might reach full N depth.
+
 ![Picture](https://github.com/kotsky/py-libs/blob/master/additional_data/pictures/complete_binary_tree.png)
 ![Picture](https://github.com/kotsky/py-libs/blob/master/additional_data/pictures/full_binary_tree.png)
 ![Picture](https://github.com/kotsky/py-libs/blob/master/additional_data/pictures/perfect_binary_tree.png)

@@ -6,6 +6,10 @@ Trie is a tree data structure to store characters at each node. Trie has one roo
 There are:
 - Prefix Trie (build Trie from the beggining of the string)
 - Suffix Trie (build Trie from the end of the string)
+	root->	babc
+			 abc
+			  bc
+			   c
 Its implementation is here [Tries](https://github.com/kotsky/py-libs/blob/master/data_structures/tries.py)
 
 ## Tries Algorithms / Problems / Usage

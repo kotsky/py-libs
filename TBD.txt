@@ -18,3 +18,9 @@ binary index tree - TBD
 segment tree - TBD
 
 to_be_updated_algo -> to use for algo description and clustering
+
+
+go through 
+	DP
+	recursion
+	arrays

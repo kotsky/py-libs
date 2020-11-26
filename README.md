@@ -1,5 +1,12 @@
 # py-libs
-Custom Python libs
+Custom Python libs and learnings
+# Content
+1. [Data Structures](https://github.com/kotsky/py-libs#data-structures)
+	1. [Hash](https://github.com/kotsky/py-libs#hash)
+	2. [String](https://github.com/kotsky/py-libs#string)
+
+
+
 
 # Data Structures
 The following data structures are described and implemented:
