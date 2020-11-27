@@ -20,7 +20,7 @@ Custom Python libs and learnings
 		3. [Tries](https://github.com/kotsky/py-libs#tries)
 	7. [Graphs](https://github.com/kotsky/py-libs#graphs)
 		1. Common Graphs
-		2. Fancy Graphs
+		2. [Fancy Graphs](https://github.com/kotsky/py-libs#fancy-graphs)
 ###
 2. [Algorithms](https://github.com/kotsky/py-libs#algorithms)
 	1. [Sort](https://github.com/kotsky/py-libs#sort)
@@ -29,16 +29,21 @@ Custom Python libs and learnings
 	2. [Search](https://github.com/kotsky/py-libs#search)
 		1. Array Search Algorithms
 		2. String Search
-	3. [Traversal](https://github.com/kotsky/py-libs#traversal)
+	3. [Transformation](https://github.com/kotsky/py-libs#transformation)
+		1. Create BST from a sorted array
+		2. Create DLL from BT: from left to right with flatten_binary_tree()
+		3. Invert BT with invert_binary_tree()
+	4. [Traversal](https://github.com/kotsky/py-libs#traversal)
 		1. Create BST from a sorted array
 		2. Create DLL from BT: from left to right
 		3. Invert BT
-	4. [Validation](https://github.com/kotsky/py-libs#validation)
+	5. [Validation](https://github.com/kotsky/py-libs#validation)
 		1. Binary Tree Traversal
-	5. [Merge](https://github.com/kotsky/py-libs#merge)
+	6. [Merge](https://github.com/kotsky/py-libs#merge)
 		1. Array Merge Algorithms
-	6. [Fancy Algorithms](https://github.com/kotsky/py-libs#fancy-algorithms)
+	7. [Fancy Algorithms](https://github.com/kotsky/py-libs#fancy-algorithms)
 		1. Topological Sort
+
 ###
 
 
@@ -454,14 +459,14 @@ Refer to [Singly Linked List](https://github.com/kotsky/py-libs/blob/master/data
 ### [Create DLL from BT: from left to right](https://github.com/kotsky/py-libs/blob/master/algorithms/transformation/bt_transformation_functions.py) with flatten_binary_tree()
 ### [Invert BT](https://github.com/kotsky/py-libs/blob/master/algorithms/transformation/bt_transformation_functions.py) with invert_binary_tree()
 
-## Validation
-### [Binary Search Tree Validation](https://github.com/kotsky/py-libs/blob/master/algorithms/validation/bst_validation.py)
-
 ## Traversal
 ### [Binary Tree Traversal](https://github.com/kotsky/py-libs/blob/master/algorithms/binary_tree_traversal.py)
 - in_order_traverse -> add left branch, then current node and then right branch
 - pre_order_traverse -> add node to order before its child nodes
 - post_order_traverse -> add node after its child nodes
+
+## Validation
+### [Binary Search Tree Validation](https://github.com/kotsky/py-libs/blob/master/algorithms/validation/bst_validation.py)
 
 ## Merge
 ### [Array Merge Algorithms](https://github.com/kotsky/py-libs/blob/master/algorithms/merge/array_merge_algorithms.py)
