@@ -71,7 +71,7 @@ class BST:
                 current_node = current_node.right
             else:
                 if current_node.left is not None and current_node.right is not None:
-                    current_node.value = current_node.right.getMinValue()
+                    current_node.value = current_node.right.get_min_value()
                     current_node.right.remove(current_node.value, current_node)
                 elif parent_node is None:
                     if current_node.left is not None:
@@ -92,7 +92,7 @@ class BST:
                 break
         return self
 
-    def getMinValue(self):
+    def get_min_value(self):
         node = self
         while node is not None:
             if node.left is not None:

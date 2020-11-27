@@ -12,7 +12,7 @@ We do rebalancing all time to keep max-heap and min-heap be one size +-1.
 
 """	
 		
-import heap from *
+# import heaps from *
 
 
 class ContinuousMedianHandler:

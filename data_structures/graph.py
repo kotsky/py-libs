@@ -2,27 +2,27 @@
 
 The Graph classe below is for
 build graphs from list/array [1, 2, 3, 4],
-each of those numbers (#job) has dependencies
+each of those numbers has dependencies
 as follows:
 [[1, 2], [1, 3], [3, 2], [4, 2], [4, 3]],
-which means #1 1 <- 2 etc..
+[1, 2] means 1 -> 2, etc..
 
 Example:
-    vertices = [1, 2, 3, 4]
-    edges = [[1, 2], [1, 3], [3, 2], [4, 2], [4, 3]]
-    graph = Graph(vertices, edges)
-    print(graph.breadth_first_search(3))
-    print(graph.depth_first_search(3))
+	vertices = [1, 2, 3, 4]
+	edges = [[1, 2], [1, 3], [3, 2], [4, 2], [4, 3]]
+	graph = Graph(vertices, edges)
+	print(graph.breadth_first_search(1))
+	print(graph.depth_first_search(1))
 """
 
 
 class Graph:
     def __init__(self, values, dependencies):
-        self.nodes = []
-        self.graph = {}
+        # self.nodes = []
+        self.data = {}
         for value in values:
             self.add_node(value)
-        for dep, value in dependencies:
+        for value, dep in dependencies:
             self.add_dep(value, dep)
 
     class GraphNode:
@@ -30,15 +30,16 @@ class Graph:
             self.value = value
             self.dependencies = []
             self.visited = False
+            self.visiting = False
 
     def add_node(self, value):
-        self.graph[value] = self.GraphNode(value)
-        self.nodes.append(self.graph[value])
+        self.data[value] = self.GraphNode(value)
+        # self.nodes.append(self.graph[value])
 
     def get_node(self, value):
-        if value not in self.graph:
+        if value not in self.data:
             self.add_node(value)
-        return self.graph[value]
+        return self.data[value]
 
     def add_dep(self, value, dep):
         value_node = self.get_node(value)
@@ -64,8 +65,11 @@ class Graph:
         return order
 
     def unvisit_nodes(self):
-        for node in self.nodes:
-            node.visited = False
+        for key in self.data.keys():
+            self.data[key].visited = False
+            self.data[key].visiting = False
+        # for node in self.nodes:
+        #     node.visited = False
 
     # O(v + e) T / O(v) S
     def breadth_first_search(self, start_node_value):
@@ -85,4 +89,3 @@ class Graph:
             node = order[idx]
             order[idx] = node.value
         return order
-

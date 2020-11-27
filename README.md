@@ -23,12 +23,22 @@ Custom Python libs and learnings
 		2. Fancy Graphs
 ###
 2. [Algorithms](https://github.com/kotsky/py-libs#algorithms)
-	1. Search
-	2. Sort
-	3. Validation
-	4. Traversal
-	5. Merge
-	6. Reversion
+	1. [Sort](https://github.com/kotsky/py-libs#sort)
+		1. Array Sort
+		2. Linked List Sort
+	2. [Search](https://github.com/kotsky/py-libs#search)
+		1. Array Search Algorithms
+		2. String Search
+	3. [Traversal](https://github.com/kotsky/py-libs#traversal)
+		1. Create BST from a sorted array
+		2. Create DLL from BT: from left to right
+		3. Invert BT
+	4. [Validation](https://github.com/kotsky/py-libs#validation)
+		1. Binary Tree Traversal
+	5. [Merge](https://github.com/kotsky/py-libs#merge)
+		1. Array Merge Algorithms
+	6. [Fancy Algorithms](https://github.com/kotsky/py-libs#fancy-algorithms)
+		1. Topological Sort
 ###
 
 
@@ -131,7 +141,7 @@ Example: [Underscorify Substring](https://github.com/kotsky/programming-exercise
 To solve this, simply find each appearance of the special word in the string, merge intervals if needed and create new string.
 
 #### Rotation
-- [String Rotation](https://github.com/kotsky/programming-exercises/blob/master/String/String%20Rotation.py) - Check if string2 contains preffix of string1. And then check other letters per origin order.
+- [String Rotation](https://github.com/kotsky/programming-exercises/blob/master/String/String%20Rotation.py) - check if string2 contains preffix of string1. And then check other letters per origin order.
 
 #### Palindromes
 Palindrome - a string which reads the same backwards.
@@ -163,6 +173,7 @@ Singly LL (SLL): `None->1->2->3->4->5->None`
 Doubly LL (DLL): `None<->1<->2<->3<->4<->5<->None`
 ### Singly Linked List
 [Singly Linked List implementation](https://github.com/kotsky/py-libs/blob/master/data_structures/linked_lists/singly_linked_list.py)
+
 Methods:
 - add value
 - generate random SLL
@@ -170,6 +181,7 @@ Methods:
 - print SLL out
 ### Doubly Linked List
 [Doubly Linked List implementation](https://github.com/kotsky/py-libs/blob/master/data_structures/linked_lists/doubly_linked_list.py)
+
 Methods:
 - add node
 - set head/tail
@@ -205,7 +217,7 @@ There are 2 implemented sort methods:
 Refer to [singly_linked_list.py](https://github.com/kotsky/py-libs/blob/master/data_structures/linked_lists/singly_linked_list.py)
 
 #### LRU Cahce
-Implementation of a [Least Recently Used cache](https://github.com/kotsky/py-libs/blob/master/data_structures/cache_strategies/lru_cache.py), which was implemented with a DLL.
+Implementation of a [Least Recently Used Cache](https://github.com/kotsky/py-libs/blob/master/data_structures/cache_strategies/lru_cache.py), which was implemented with a DLL.
 
 #### Runner technique
 You iterate LL with 2 pointers simultaneously, with one ahead other (fast and slow pointers).
@@ -230,43 +242,45 @@ Split linked list on 2 parts and check node by node. Example: [SLL Palindrome Ch
 
 ###
 ## Memory cells replacement structures
-[Memory cells replacement strategies description]()
-### FIFO
-[FIFO: queue implementation](https://github.com/kotsky/py-libs/blob/master/data_structures/memo_repacement_strategies/fifo.py)
-Methods: `add()`, `pop()`, `peek()` and `is_empty()`
-### FILO
-[FILO: stack implementation](https://github.com/kotsky/py-libs/blob/master/data_structures/memo_repacement_strategies/filo.py)
-Methods: `add()`, `pop()`, `peek()` and `is_empty()`
-###
-
-## FILO
-Or Stack works in FILO and simply can be implemented with an array.
-
-### Complexity
+The Last-In, First-Out (FILO) method assumes that the last unit to arrive in inventory or more recent is sold first. The First-In, First-Out (FIFO) method assumes that the oldest unit of inventory is the sold first.
+Complexity:
 - Create - Time: O(N) / Space: O(N)
 - Insert/Delete/Search - Time: O(k) / Space: O(+1)
 - Add (append) - Time: O(1) / Space: O(+1)
+- Pop last element - Time: O(1) / Space: O(-1)
 
-### Stack variations
+### FIFO
+Or Stack works in FILO and simply can be implemented with an array.
+
+#### Stack variations
 There might be different types of stacks, except having common methods like `add()`, `pop()`, `peek()` and `is_empty()`.
 - Simple [Stack](https://github.com/kotsky/py-libs/blob/master/data_structures/memo_repacement_strategies/filo.py)
 - [MinMax Stack](https://github.com/kotsky/py-libs/blob/master/data_structures/memo_repacement_strategies/filo.py) - to track min and max values -> to do that, we have additional min and max stacks, where we track min and max values at each index along common stack array.
 
-### Usage
+#### Usage
 Stacks are often useful in certain recursive algorithms. Sometimes you need to push some data in your memory, but then remove by returning back recursively.
 Also, stacks can be used to implement recursive algorithm iteratively.
-Another usage of stacks is to save elements in its initial order, and then delete them in backward. It can be used for [tracking Close and Open brackets](https://github.com/kotsky/programming-exercises/blob/master/Stacks%20And%20Queues/Balanced%20Brackets.py).
+Another usage of stacks is to save elements in its initial order, and then delete them in backward. It can be used for [Tracking Close & Open Brackets](https://github.com/kotsky/programming-exercises/blob/master/Stacks%20And%20Queues/Balanced%20Brackets.py).
 Or, when you need to simplify something (like long path) into shorter version, like [Shorter Path](https://github.com/kotsky/programming-exercises/blob/master/Stacks%20And%20Queues/Shorten%20Path.py).
 
-## FIFO
-Or [Queue](https://github.com/kotsky/py-libs/blob/master/data_structures/memo_repacement_strategies/fifo.py) works in FIFO and simply can be implemented with a Singly Linked List.
-Methods are implemented: `add()`, `pop()`, `peek()` and `is_empty()`
+[FIFO: queue implementation](https://github.com/kotsky/py-libs/blob/master/data_structures/memo_repacement_strategies/fifo.py)
+
+Methods: `add()`, `pop()`, `peek()` and `is_empty()`
+###
+### FILO
+Or Queue works in FIFO and simply can be implemented with a Singly Linked List.
 Be aware that it's too easy to mess up the first and last nodes, so check them twice.
 Queue is used in Breadth-first search or other technics, where at first you append other nodes to explore, and then explore  those nodes in order of adding them to queue.
+
+[FILO: stack implementation](https://github.com/kotsky/py-libs/blob/master/data_structures/memo_repacement_strategies/filo.py)
+
+Methods: `add()`, `pop()`, `peek()` and `is_empty()`
+###
 
 ## Cache Strategies
 ### LRU Cache
 [LRU Cache implementation](https://github.com/kotsky/py-libs/blob/master/data_structures/cache_strategies/lru_cache.py)
+
 Methods:
 - create with user's desired size
 - insert key-value pair
@@ -275,7 +289,19 @@ Methods:
 ###
 ## Trees
 ### Binary Search Tree
-In this tree each node has max 2 childs and for [Binary Search Tree](https://github.com/kotsky/py-libs/blob/master/data_structures/bst.py) following condition is applied `node.left.value < node.value <= node.right.value`.
+In this tree each node has max 2 childs. More in BST.
+#### BT Algorithms / Problems / Usage
+- [Traversal methods](https://github.com/kotsky/py-libs/blob/master/algorithms/binary_tree_traversal.py)
+- When you explore some path, you might try to represent it as a LL or an array. This might be helpful it problems of sum tracking in BT.
+- To defined if bt_one is a subtree of bt_two 
+	- do pre-order traversal (with includidng NULL nodes as some symbol `X`), which gives same result for the subtree and the tree if they are same by structure and values -> then do array matching.
+	- alternative: call at each node match function. There is trade off between space and time complexities in v1 and v2. Discuss it.
+
+###
+### Binary Search Tree
+Binary Search Tree (BST) has the following condition: 
+`node.left.value < node.value <= node.right.value`.
+
 [Binary Search Tree implementation](https://github.com/kotsky/py-libs/data_structures/bst.py)
 ```
 class Node:
@@ -298,11 +324,13 @@ Besides that, Balanced Binary Tree has log(N) depth, and not-balanced tree might
 
 #### BST Algorithms / Problems
 There are the follows:
-- [Traversal methods](https://github.com/kotsky/py-libs/blob/master/algorithms/binary_tree_traversal.py)
-- BST validation
-- Find out the min depth from a sorted array - or build a balanced BST.
+- [BST validation](https://github.com/kotsky/py-libs/blob/master/algorithms/validation/bst_validation.py)
+- Find out the min depth from a sorted array - or build a balanced BST or check it's depth by number of recursive calls.
 There are several things to keep tracking: 1) return root node as your output; 2) track parent node and how did you come to the current node (from the left or from the right?).
 In majority, recursion helps to solve GST problems.
+- Convert BST to all possible arrays - recursive call at each node to merge in different ways arrays from child nodes with parent node.
+- Return Random Node - track how many each node has childs, total size of BST and from that calculate probability of returning certain node.
+
 
 ###
 ### Binary Heaps
@@ -317,6 +345,7 @@ Methods: `insert()`, `pop()`, `peek()` and `is_empty()`
 Methods: `insert()`, `pop()`, `peek()` and `is_empty()`
 #### Continuous Median Handler
 The point is to track a median during adding more elements to the array.
+
 [Continuous Median Handler implementation](https://github.com/kotsky/py-libs/blob/master/data_structures/continuous_median_handler.py)
 
 #### Complexity
@@ -359,11 +388,13 @@ One classic problem is to find out if the given words are in some text
 ###
 ## Graphs
 A graph is a collection nodes with edges.
+
 ![Picture](https://github.com/kotsky/py-libs/blob/master/additional_data/pictures/graphs_example.png)
 
 There are 2 types of graph representation:
 - Adjacency List (common representation)
 - Adjacency Matrix NxN 
+
 ![Picture](https://github.com/kotsky/py-libs/blob/master/additional_data/pictures/graphs_adjacency_matrix.png)
 	
 ### Graphs Search
@@ -377,15 +408,24 @@ Take a note, that in graphs we have to track which nodes we already visited befo
 Bidirectional search is faster rather normal BFS, because we don't traverse through all nodes around our target nodes. Mathematically, time complexity for traditional BFS search is O(k^(d)) time, where k - nodes, d - shortest path from target nodes 1 to 2. But there is O(k^(d/2)) time for bidirectional search.
 
 [Simple Graph implementation](https://github.com/kotsky/py-libs/blob/master/data_structures/graph.py)
+
 Methods:
 - create graph from vertices and edges
 - add nodes/dependencies to graph
 - depth first search (DFS) from the start node
 - breadth first search (BFS) from the start node
 
+#### Algorithms / Usage / Problems
+Graphs are in the use widely in problems, where different nodes are combined into system of dependencies (social network relations).
+Also, it can be useful to explore how nodes relate to each others to build certain sequences to complete certain tasks. 
+For instance, [Topological Sort](https://github.com/kotsky/py-libs/blob/master/algorithms/topological_sort.py) solves the problem, where we have to understand in which order we have to complete jobs, assuming that some jobs can be completed only after others.
+
+Another usage can be found in matrices. You can imagine it as maps problems - find a path from something to somethings, or explore a path and define if this path is what you are looking for.
+For instance, 
+
 ### Fancy Graphs
-#### Airport Connections
-#### TBD
+#### [Airport Connections](https://github.com/kotsky/programming-exercises/blob/master/Graph/Airport%20Connections.py)
+
 
 # Algorithms
 ## Sort
@@ -396,11 +436,11 @@ Methods:
 - Selection Sort
 - Insertion Sort
 - Bubble Sort
-### Sort for Linked Lists
-Refer to [Singly Linked List](https://github.com/kotsky/py-libs/blob/master/data_structures/linked_lists/singly_linked_list.py) and [Doubly  Linked List](https://github.com/kotsky/py-libs/blob/master/data_structures/linked_lists/doubly_linked_list.py) to find out sort methods.
+### Linked Lists Sort 
+Refer to [Singly Linked List](https://github.com/kotsky/py-libs/blob/master/data_structures/linked_lists/singly_linked_list.py) and [Doubly  Linked List](https://github.com/kotsky/py-libs/blob/master/data_structures/linked_lists/doubly_linked_list.py) to find sort methods out.
 
 ## Search
-### [Array Search Algorithms](https://github.com/kotsky/py-libs/blob/master/algorithms/search/array_search_algorithms.py
+### [Array Search Algorithms](https://github.com/kotsky/py-libs/blob/master/algorithms/search/array_search_algorithms.py)
 - Binary Search -> to find an element in a sorted array
 - Quick Select -> to find kth smallest element in the array
 - Search In Sorted Matrix -> to find an element in a sorted matrix
@@ -411,7 +451,7 @@ Refer to [Singly Linked List](https://github.com/kotsky/py-libs/blob/master/data
 
 ## Transformation
 ### [Create BST from a sorted array](https://github.com/kotsky/py-libs/blob/master/algorithms/transformation/array_transformation_functions.py)
-### [Create DLL from BT: left -> right](https://github.com/kotsky/py-libs/blob/master/algorithms/transformation/bt_transformation_functions.py) with flatten_binary_tree()
+### [Create DLL from BT: from left to right](https://github.com/kotsky/py-libs/blob/master/algorithms/transformation/bt_transformation_functions.py) with flatten_binary_tree()
 ### [Invert BT](https://github.com/kotsky/py-libs/blob/master/algorithms/transformation/bt_transformation_functions.py) with invert_binary_tree()
 
 ## Validation
@@ -419,15 +459,14 @@ Refer to [Singly Linked List](https://github.com/kotsky/py-libs/blob/master/data
 
 ## Traversal
 ### [Binary Tree Traversal](https://github.com/kotsky/py-libs/blob/master/algorithms/binary_tree_traversal.py)
-- in_ordery_traverse -> visit left branch, then current node and then right branch
-- pre_order_traverse -> visit node before its child nodes
-- post_order_traverse -> visit node after its child nodes
+- in_order_traverse -> add left branch, then current node and then right branch
+- pre_order_traverse -> add node to order before its child nodes
+- post_order_traverse -> add node after its child nodes
 
 ## Merge
 ### [Array Merge Algorithms](https://github.com/kotsky/py-libs/blob/master/algorithms/merge/array_merge_algorithms.py)
 - Merge Sorted Arrays in O(N*log(K) + K) Time / O(N + K) Time, where N - total number of elements and K - number of subarrays.
 
-
-
-
+## Fancy Algorithms
+- [Topological Sort](https://github.com/kotsky/py-libs/blob/master/algorithms/topological_sort.py)
 

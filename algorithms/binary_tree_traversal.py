@@ -2,7 +2,7 @@
 # Input "tree", "array" - root of the tree, [] where to store
 # Output "array" - contains output numbers 
 '''
-[1, 2, 5, 5, 10, 15, 22] in_ordery_traverse
+[1, 2, 5, 5, 10, 15, 22] in_order_traverse
 [10, 5, 2, 1, 5, 15, 22] pre_order_traverse
 [1, 2, 5, 5, 22, 15, 10] post_order_traverse
 '''
@@ -10,7 +10,7 @@
 # Visit left branch, then current node 
 # and then right branch
 
-def in_ordery_traverse(tree, array):
+def in_order_traverse(tree, array):
     if tree.left is not None:
         in_ordery_traverse(tree.left, array)
     array.append(tree.value)
