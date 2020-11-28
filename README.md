@@ -1,5 +1,7 @@
 # py-libs
-Custom Python libs and learnings
+Custom Python libs and learnings.
+
+In this package I provide a description of different data structures and algorithms with my own implementation and usage cases.
 # Content
 ## [Data Structures](https://github.com/kotsky/py-libs#data-structures)
 1. [Array](https://github.com/kotsky/py-libs#array)
@@ -57,7 +59,6 @@ Custom Python libs and learnings
 
 
 # Data Structures
-In this document I provide a description of different data structures with my own implementation and usage cases.
 ###
 ## Array
 Array (or list) is a data structure, which contains elements, and each of these elements have its own index.
