@@ -1,7 +1,7 @@
 # py-libs
 Custom Python libs and learnings
 # Content
-[Data Structures](https://github.com/kotsky/py-libs#data-structures)
+## [Data Structures](https://github.com/kotsky/py-libs#data-structures)
 1. [Array](https://github.com/kotsky/py-libs#array)
 2. [Hash](https://github.com/kotsky/py-libs#hash)
 3. [String](https://github.com/kotsky/py-libs#string)
@@ -23,14 +23,14 @@ Custom Python libs and learnings
 	1. Common Graphs
 	2. [Fancy Graphs](https://github.com/kotsky/py-libs#fancy-graphs)
 ###
-[Techniques](https://github.com/kotsky/py-libs#techniques)
+## [Techniques](https://github.com/kotsky/py-libs#techniques)
 1. Bit Manipulation
 2. Dynamic Programming
 3. Back Tracking
 4. Recursion
 
 ###
-[Algorithms](https://github.com/kotsky/py-libs#algorithms)
+## [Algorithms](https://github.com/kotsky/py-libs#algorithms)
 1. [Sort](https://github.com/kotsky/py-libs#sort)
 	1. Array Sort
 	2. Linked List Sort
