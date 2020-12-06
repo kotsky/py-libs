@@ -1,50 +1,117 @@
 # py-libs
-Custom Python libs and learnings
+Custom Python libs and learnings.
+
+In this package I provide a description of different data structures and algorithms with my own implementation and usage cases.
 # Content
-1. [Data Structures](https://github.com/kotsky/py-libs#data-structures)
-	1. [Hash](https://github.com/kotsky/py-libs#hash)
-	2. [String](https://github.com/kotsky/py-libs#string)
-	3. [Linked Lists](https://github.com/kotsky/py-libs#linked-lists)
-		1. [Singly Linked List](https://github.com/kotsky/py-libs#singly-linked-lists)
-		2. [Doubly Linked List](https://github.com/kotsky/py-libs#doubly-linked-lists)
-	4. [Memory cells replacement structures](https://github.com/kotsky/py-libs#memory-cells-replacement-structures)
-		1. [FIFO](https://github.com/kotsky/py-libs#fifo)
-		2. [FILO](https://github.com/kotsky/py-libs#filo)
-	5. [Cache Strategies](https://github.com/kotsky/py-libs#cache-strategies)
-	6. [Trees](https://github.com/kotsky/py-libs#trees)
-		1. [Binary Search Tree](https://github.com/kotsky/py-libs#binary-search-tree)
-		2. [Binary Heaps](https://github.com/kotsky/py-libs#binary-heaps)
-			1. [Min-Heap](https://github.com/kotsky/py-libs#min-heap)
-			2. [Max-Heap](https://github.com/kotsky/py-libs#max-heap)
-			3. [Continuous Median Handler](https://github.com/kotsky/py-libs#continuous-median-handler)
-		3. [Tries](https://github.com/kotsky/py-libs#tries)
-	7. [Graphs](https://github.com/kotsky/py-libs#graphs)
-		1. Common Graphs
-		2. Fancy Graphs
+## [Data Structures](https://github.com/kotsky/py-libs#data-structures)
+1. [Array](https://github.com/kotsky/py-libs#array)
+2. [Hash](https://github.com/kotsky/py-libs#hash)
+3. [String](https://github.com/kotsky/py-libs#string)
+4. [Linked Lists](https://github.com/kotsky/py-libs#linked-lists)
+	1. [Singly Linked List](https://github.com/kotsky/py-libs#singly-linked-lists)
+	2. [Doubly Linked List](https://github.com/kotsky/py-libs#doubly-linked-lists)
+5. [Memory cells replacement structures](https://github.com/kotsky/py-libs#memory-cells-replacement-structures)
+	1. [FIFO](https://github.com/kotsky/py-libs#fifo)
+	2. [FILO](https://github.com/kotsky/py-libs#filo)
+6. [Cache Strategies](https://github.com/kotsky/py-libs#cache-strategies)
+7. [Trees](https://github.com/kotsky/py-libs#trees)
+	1. [Binary Search Tree](https://github.com/kotsky/py-libs#binary-search-tree)
+	2. [Binary Heaps](https://github.com/kotsky/py-libs#binary-heaps)
+		1. [Min-Heap](https://github.com/kotsky/py-libs#min-heap)
+		2. [Max-Heap](https://github.com/kotsky/py-libs#max-heap)
+		3. [Continuous Median Handler](https://github.com/kotsky/py-libs#continuous-median-handler)
+	3. [Tries](https://github.com/kotsky/py-libs#tries)
+8. [Graphs](https://github.com/kotsky/py-libs#graphs)
+	1. Common Graphs
+	2. [Fancy Graphs](https://github.com/kotsky/py-libs#fancy-graphs)
 ###
-2. [Algorithms](https://github.com/kotsky/py-libs#algorithms)
-	1. [Sort](https://github.com/kotsky/py-libs#sort)
-		1. Array Sort
-		2. Linked List Sort
-	2. [Search](https://github.com/kotsky/py-libs#search)
-		1. Array Search Algorithms
-		2. String Search
-	3. [Traversal](https://github.com/kotsky/py-libs#traversal)
-		1. Create BST from a sorted array
-		2. Create DLL from BT: from left to right
-		3. Invert BT
-	4. [Validation](https://github.com/kotsky/py-libs#validation)
-		1. Binary Tree Traversal
-	5. [Merge](https://github.com/kotsky/py-libs#merge)
-		1. Array Merge Algorithms
-	6. [Fancy Algorithms](https://github.com/kotsky/py-libs#fancy-algorithms)
-		1. Topological Sort
+## [Techniques](https://github.com/kotsky/py-libs#techniques)
+1. Bit Manipulation
+2. Dynamic Programming
+3. Back Tracking
+4. Recursion
+5. Math and Logic
+
+###
+## [Algorithms](https://github.com/kotsky/py-libs#algorithms)
+1. [Sort](https://github.com/kotsky/py-libs#sort)
+	1. Array Sort
+	2. Linked List Sort
+2. [Search](https://github.com/kotsky/py-libs#search)
+	1. Array Search Algorithms
+	2. String Search
+3. [Transformation](https://github.com/kotsky/py-libs#transformation)
+	1. Create BST from a sorted array
+	2. Create DLL from BT: from left to right with flatten_binary_tree()
+	3. Invert BT with invert_binary_tree()
+4. [Traversal](https://github.com/kotsky/py-libs#traversal)
+	1. Create BST from a sorted array
+	2. Create DLL from BT: from left to right
+	3. Invert BT
+5. [Validation](https://github.com/kotsky/py-libs#validation)
+	1. Binary Tree Traversal
+6. [Merge](https://github.com/kotsky/py-libs#merge)
+	1. Array Merge Algorithms
+7. [Fancy Algorithms](https://github.com/kotsky/py-libs#fancy-algorithms)
+	1. Topological Sort
+	2. Dijkstra Algorithm
 ###
 
 
 
 # Data Structures
-The following data structures are described and implemented:
+###
+## Array
+Array (or list) is a data structure, which contains elements, and each of these elements have its own index.
+Python implementation: `array = []`
+
+### Complexity
+- Create - Time: O(N) / Space: O(N)
+- Insert/Delete/Search - Time: O(k) / Space: O(1), where k - element index.
+#### Nuances
+Once we exceed array limit of storing data, we double its size and searching for new memory place in case next memory cell is occupied (if it happens, it takes O(N) time).
+
+### Algorithms / Usage / Problems
+DOn't forget to use method .copy() when you need to duplicate an array, because Python is full of pointers.
+
+1. Sorted Arrays
+Use a property of sorted arrays with 2 pointers or binary search.
+- Find elements, sum of each equal to certain target number - 2 pointers.
+- Binary Search to find an element in O(log(N)) time.
+- Merge sorted arrays -> find more in Binary Heaps.
+
+2. Arrays
+- Use hash tables in case you need to find certain pair of elements in linear time. Also, hash tables can be used to find sequences in the array, where value in key-value points to `next_node`.
+- Find duplicates:
+	- with hast table
+	- sort arrays and find next same element
+- Subarray problems:
+	- When you need to indentify certain spot in an array, try to use subarray of these adjacent element.
+		- Define peek (longest peek) in an array -> take 3 adjacent pointers and define a peek, then explore it.
+	- [Kadanes Algorithm](https://github.com/kotsky/programming-exercises/blob/master/Array/Kadanes%20Algorithm.py) - to find the max possible sum of adjacent elements (subarray).
+		- Here you should track `local_sum` and `current_num` (check if `current_num` is more than `local_sum`) and `global_sum`.
+- Many problems can be solved by traversing from the left (do something) and then from the right (do something). Hold it in your head. [Subarray Sort](https://github.com/kotsky/programming-exercises/blob/master/Array/Subarray%20Sort.py)
+- Also, according to above point, you can write down in additional array your calculation during moving to the right, and then do recalculation by going to the left.
+```
+Input = [a1, a2, a3]
+What you can do in linear time?
+additional_array = [x1, x2, x3]
+By moving to the left:
+	x1 = some first initializated value
+	x2 = x1 * a1 (or similar)
+	x3 = x2 * a2 (or similar)
+By moving to the right:
+	same from the end.
+```
+- In problems to determine increasing/decreasing of the array, you can use variable `direction` to understand, where you are going. [Monotonic Array](https://github.com/kotsky/programming-exercises/blob/master/Array/Monotonic%20Array.py)
+- You might use elements in the array like graphs or LL. You can explore matrix by using graphs techniques.
+- Matrix traversal:
+	- In certain problems of transformation from matrix to an 1D array, the direction variable can be in the use to navigate which next number has to be.
+	- Also, there might be useful to keep in mind 4 pointers - 4 directions method - like to traverse in clockwise order.
+- Transformation:
+	- In case of turning matrix, write down 4x4 example, its finale view and check, where is a pattern. Don't scare to just flip (horizontally or vertically) matrix as an intermediate step.
+
+
 ###
 ## Hash
 Python implementation: `hash_table = {}`
@@ -66,9 +133,9 @@ Take a note, that hash table has to read input (key) first, and then it will do 
 O(N) time takes memory resizing of cache once we exceed its limit (like a dynamic array), for that, we do O(N) hashing.
 
 ### Usage
-Great to use when you need fast search/insert/delete in data massive.
-There is no order in hash table, but you can add additional attribute as `'index'` to assign it. Or to create LinkedList style by creating `'next_node'`.
-Nice to use when need to count letters in strings, search if second string contains permutations of first one and so one in different variosity.
+- Great to use when you need fast search/insert/delete in data massive.
+- There is no order in hash table, but you can add additional attribute as `'index'` to assign it. Or to create LinkedList style by creating `'next_node'`. Next node pointing can be used in many problems, where quick search is required and we need to have certain relation with that particular node.
+- Nice to use when need to count letters in strings, search if second string contains permutations of first one and so one in different variosity.
 
 ###
 ## String
@@ -288,9 +355,13 @@ Methods:
 - get most recent key
 ###
 ## Trees
-### Binary Search Tree
+### Binary Tree
 In this tree each node has max 2 childs. More in BST.
 #### BT Algorithms / Problems / Usage
+- depth first search (DFS) - explore each branch before changing to other branch
+	- recursively
+	- iteratively with stack 
+- breadth first search (BFS) - explore neighbours before their childs
 - [Traversal methods](https://github.com/kotsky/py-libs/blob/master/algorithms/binary_tree_traversal.py)
 - When you explore some path, you might try to represent it as a LL or an array. This might be helpful it problems of sum tracking in BT.
 - To defined if bt_one is a subtree of bt_two 
@@ -370,15 +441,18 @@ There are listed few examples:
 ###
 ### Tries
 Trie is a tree data structure to store characters at each node. Trie has one root node, multiple child nodes and might have end node, which can be presented as some special symbol, like `*`, and can indicate complete words.
+
 ![Picture](https://github.com/kotsky/py-libs/blob/master/additional_data/pictures/trie.png)
 
 There are:
 - Prefix Trie (build Trie from the beggining of the string)
 - Suffix Trie (build Trie from the end of the string)
+```
 	root->	babc
-			 abc
-			  bc
-			   c
+	 abc
+	  bc
+	   c
+```
 Find its implementation here [Tries](https://github.com/kotsky/py-libs/blob/master/data_structures/tries.py)
 
 #### Tries Algorithms / Problems / Usage
@@ -427,6 +501,82 @@ For instance,
 #### [Airport Connections](https://github.com/kotsky/programming-exercises/blob/master/Graph/Airport%20Connections.py)
 
 
+
+# Techniques
+## Bit Manipulation
+
+[Bit Manipulation Problems](https://github.com/kotsky/programming-exercises/tree/master/Bit%20Manipulation)
+
+Indicators:
+^ - XOR
+~ - NOT
+
+### Tips
+
+Take a note, that `a^(~a) => 1111... (-1)` and `a^a => 0`.
+
+Negative representation: `-k => contack (1, 2^(N-1) - k)`
+
+Example: `-3 in 4 bits => 8 - 3 = 5 => 101. contact(1, 101) => 1101`
+
+![Picture](https://github.com/kotsky/py-libs/blob/master/additional_data/pictures/bit_manipulation_1.png)
+
+Try to use info about "base of 2" to solve your problems: use `% 2` and `// 2` with its immediate process operation instead saving bits into an array list.
+
+### Right shifts
+Arithmetic right shift: `a >> 1` shift by 1 bit and fill sign bit with same value. So the results is to divide on 2, or `-75 >> 1 => -38`.
+Logic right shift: `a >>> 1` shift by 1 bit and fill the most left bit spot with 0. So `-75 >>> 1 => 90`.
+
+
+## Dynamic Programming
+Dynamic Programming is the method of solving tasks, when you solve subtasks of this main task and 
+store results at some array/data str. And reuse it when need.
+
+### Few main technics:
+- Store max/min/special values in the same size array/matrix and use them for next steps/calculation.
+- Store indexes to track (sequence problem) -> like what happens if that element at that index is included in the finale sequence?
+
+### Examples:
+- Min Number of Exchange - you need to split amount `n` with coin denominations. So, you start solving from `n = 0` until its `n` value. Try to define a pattern. Focus on denoms and their value. How they impact on the result?
+- Min Jumps to Reach the End - is okay to solve with DP (standard technique[, but there is a smart way.
+Count, how many steps you have from an actual number. Then track the max how far you can jump using next jump + these current steps. Once you exceed steps, update it by subtract your current position with max possible reached by you & jump += 1.
+When you have the results, which depends on 2 inputs -> build matrix.
+- Min Number of Edit / Levenshtein Distance (2 strings) - build a matrix of same size by row and column for 2 input strings/arrays which are given to compare. Let matrix[i][j] - number of edits at i and j indexes. 
+Then matrix[i-1][j] is delete letter at string-i, matrix[i][j-1] means delete letter ar string-j and matrix[i-1][j-1] means swap letters between 2 strings.
+- [Knapsack Problem](https://github.com/kotsky/programming-exercises/blob/master/Dynamic%20Programming/Knapsack%20Problem.py) - to find out max possible value of items, which you can put into a bag with certain capacity (2 inputs: value and weight of items + bag capacity) -> build matrix of capacity(items) and track value/cap for each next solution. Then, do backtrack to count your items.
+- When you have certain problem to calculate something to the left and to the right from an idx in array, you can calculate its left solution by traversing from the left to the right, and then its right solution by traversing from the right to the left. 
+Then, combine these 2 results into one finale cell. [Water Area](https://github.com/kotsky/programming-exercises/blob/master/Dynamic%20Programming/Water%20Area.py)
+- [Max Profit with K Operation](https://github.com/kotsky/programming-exercises/blob/master/Dynamic%20Programming/Max%20Profit%20With%20K%20Transactions.py) - try to come up with idea, that at first you have `0` at your balance, then at some day you buy stock (track the min sum you spent to buy stocks), and then calculate max profit per each next index.
+- [Min String Cut to have palindromes](https://github.com/kotsky/programming-exercises/blob/master/Dynamic%20Programming/Palindrome%20Partitioning%20Min%20Cuts.py) 
+Build a matrix, which contains info about if at that index this substring is a palindrome at each index. Then, With new array, check how you can cut string on palindromes. If you find a palindrome, then you have 0 cuts at that particular index.
+
+
+
+TBD
+
+## Back Tracking
+
+TBD
+
+## Recursion
+
+TBD
+
+## Math and Logic
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Algorithms
 ## Sort
 ### [Array Sort](https://github.com/kotsky/py-libs/blob/master/algorithms/sort/array_sort_algorithms.py)
@@ -454,14 +604,14 @@ Refer to [Singly Linked List](https://github.com/kotsky/py-libs/blob/master/data
 ### [Create DLL from BT: from left to right](https://github.com/kotsky/py-libs/blob/master/algorithms/transformation/bt_transformation_functions.py) with flatten_binary_tree()
 ### [Invert BT](https://github.com/kotsky/py-libs/blob/master/algorithms/transformation/bt_transformation_functions.py) with invert_binary_tree()
 
-## Validation
-### [Binary Search Tree Validation](https://github.com/kotsky/py-libs/blob/master/algorithms/validation/bst_validation.py)
-
 ## Traversal
 ### [Binary Tree Traversal](https://github.com/kotsky/py-libs/blob/master/algorithms/binary_tree_traversal.py)
 - in_order_traverse -> add left branch, then current node and then right branch
 - pre_order_traverse -> add node to order before its child nodes
 - post_order_traverse -> add node after its child nodes
+
+## Validation
+### [Binary Search Tree Validation](https://github.com/kotsky/py-libs/blob/master/algorithms/validation/bst_validation.py)
 
 ## Merge
 ### [Array Merge Algorithms](https://github.com/kotsky/py-libs/blob/master/algorithms/merge/array_merge_algorithms.py)
@@ -469,4 +619,5 @@ Refer to [Singly Linked List](https://github.com/kotsky/py-libs/blob/master/data
 
 ## Fancy Algorithms
 - [Topological Sort](https://github.com/kotsky/py-libs/blob/master/algorithms/topological_sort.py)
+- Dijkstra Algorithm
 
