@@ -85,6 +85,7 @@ Use a property of sorted arrays with 2 pointers or binary search.
 - Find duplicates:
 	- with hast table
 	- sort arrays and find next same element
+	- if there is certain condition regarding numbers like numbers < len(array), then use indexes of the array to track numbers with "-1" -> negative number will show if we meet the number before from that particular index value.
 - Subarray problems:
 	- When you need to indentify certain spot in an array, try to use subarray of these adjacent element.
 		- Define peek (longest peek) in an array -> take 3 adjacent pointers and define a peek, then explore it.
@@ -529,12 +530,18 @@ Logic right shift: `a >>> 1` shift by 1 bit and fill the most left bit spot with
 
 
 ## Dynamic Programming
+
+[Dynamic Programming Problems](https://github.com/kotsky/programming-exercises/tree/master/Dynamic%20Programming)
+
 Dynamic Programming is the method of solving tasks, when you solve subtasks of this main task and 
 store results at some array/data str. And reuse it when need.
 
 ### Few main technics:
 - Store max/min/special values in the same size array/matrix and use them for next steps/calculation.
 - Store indexes to track (sequence problem) -> like what happens if that element at that index is included in the finale sequence?
+
+### Tips
+When you have a task to compare 2 strings/arrays, to find there special subsequences or whatever, try to build 2D matrix to solve index by index. Find pattern and return last element of the matrix, or use backtrack to build a certain sequence.
 
 ### Examples:
 - Min Number of Exchange - you need to split amount `n` with coin denominations. So, you start solving from `n = 0` until its `n` value. Try to define a pattern. Focus on denoms and their value. How they impact on the result?
@@ -549,8 +556,9 @@ Then, combine these 2 results into one finale cell. [Water Area](https://github.
 - [Max Profit with K Operation](https://github.com/kotsky/programming-exercises/blob/master/Dynamic%20Programming/Max%20Profit%20With%20K%20Transactions.py) - try to come up with idea, that at first you have `0` at your balance, then at some day you buy stock (track the min sum you spent to buy stocks), and then calculate max profit per each next index.
 - [Min String Cut to have palindromes](https://github.com/kotsky/programming-exercises/blob/master/Dynamic%20Programming/Palindrome%20Partitioning%20Min%20Cuts.py) 
 Build a matrix, which contains info about if at that index this substring is a palindrome at each index. Then, With new array, check how you can cut string on palindromes. If you find a palindrome, then you have 0 cuts at that particular index.
-
-
+- [Longest Increasing Subsequence](https://github.com/kotsky/programming-exercises/blob/master/Dynamic%20Programming/Longest%20Increasing%20Subsequence.py)
+Here, use additional array to track idx before in sequences. There are 2 methods: for loop with nested for loop to identify max sequence from solutions before; 2) build an array, where you store temporary values and try insert new number into that array -> if is possible to insert, replace number at that index by its new number and grab info of replaced number (info about what idx/num was before in sequence of replaced number). 
+Use binary search for log(N) idx search of replacement.
 
 TBD
 
@@ -564,17 +572,19 @@ TBD
 
 ## Math and Logic
 
+In many tasks to identify uncommon sample, try to assign special attribute or unique numbers to each sample so once you measure it, you can identify this special sample with some math operation. For instance, binary representation of each sample can give fast result of poisoned one.
 
+### Basics
+Any number can be combined by multiplication of prime numbers.
+`Any number = 2^(a1) * 3^(a2) * 5^(a3) *...`
 
+To check if a number is prime, define a * b = n and check for a <= sqrt(n) if number % a. Don't need to explore b, because it gives the same answer as a.
 
+#### Probability AND: P(A + B) = P(B given A) * P(A)
+![Picture](https://github.com/kotsky/py-libs/blob/master/additional_data/pictures/probability_and.png)
 
-
-
-
-
-
-
-
+#### Probability OR: P(A or B) =  P(A) + P(B) - P(A and B)
+![Picture](https://github.com/kotsky/py-libs/blob/master/additional_data/pictures/probability_or.png)
 
 
 # Algorithms
@@ -619,5 +629,5 @@ Refer to [Singly Linked List](https://github.com/kotsky/py-libs/blob/master/data
 
 ## Fancy Algorithms
 - [Topological Sort](https://github.com/kotsky/py-libs/blob/master/algorithms/topological_sort.py)
-- Dijkstra Algorithm
+- [Dijkstra Algorithm](https://github.com/kotsky/py-libs/blob/master/algorithms/dijkstras_algorithm.py)
 
