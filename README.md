@@ -30,6 +30,7 @@ In this package I provide a description of different data structures and algorit
 2. Dynamic Programming
 3. Back Tracking
 4. Recursion
+5. Math and Logic
 
 ###
 ## [Algorithms](https://github.com/kotsky/py-libs#algorithms)
@@ -84,12 +85,27 @@ Use a property of sorted arrays with 2 pointers or binary search.
 - Find duplicates:
 	- with hast table
 	- sort arrays and find next same element
+	- if there is certain condition regarding numbers like numbers < len(array), then use indexes of the array to track numbers with "-1" -> negative number will show if we meet the number before from that particular index value.
+
 - Subarray problems:
 	- When you need to indentify certain spot in an array, try to use subarray of these adjacent element.
 		- Define peek (longest peek) in an array -> take 3 adjacent pointers and define a peek, then explore it.
 	- [Kadanes Algorithm](https://github.com/kotsky/programming-exercises/blob/master/Array/Kadanes%20Algorithm.py) - to find the max possible sum of adjacent elements (subarray).
 		- Here you should track `local_sum` and `current_num` (check if `current_num` is more than `local_sum`) and `global_sum`.
 - Many problems can be solved by traversing from the left (do something) and then from the right (do something). Hold it in your head. [Subarray Sort](https://github.com/kotsky/programming-exercises/blob/master/Array/Subarray%20Sort.py)
+- Also, according to above point, you can write down in additional array your calculation during moving to the right, and then do recalculation by going to the left.
+```
+Input = [a1, a2, a3]
+What you can do in linear time?
+additional_array = [x1, x2, x3]
+By moving to the left:
+	x1 = some first initializated value
+	x2 = x1 * a1 (or similar)
+	x3 = x2 * a2 (or similar)
+By moving to the right:
+	same from the end.
+```
+
 - In problems to determine increasing/decreasing of the array, you can use variable `direction` to understand, where you are going. [Monotonic Array](https://github.com/kotsky/programming-exercises/blob/master/Array/Monotonic%20Array.py)
 - You might use elements in the array like graphs or LL. You can explore matrix by using graphs techniques.
 - Matrix traversal:
@@ -439,6 +455,7 @@ There are:
 			 abc
 			  bc
 			   c
+
 ```
 Find its implementation here [Tries](https://github.com/kotsky/py-libs/blob/master/data_structures/tries.py)
 
@@ -492,9 +509,35 @@ For instance,
 # Techniques
 ## Bit Manipulation
 
-TBD
+[Bit Manipulation Problems](https://github.com/kotsky/programming-exercises/tree/master/Bit%20Manipulation)
+
+Indicators:
+^ - XOR
+~ - NOT
+
+### Tips
+
+Take a note, that `a^(~a) => 1111... (-1)` and `a^a => 0`.
+
+Negative representation: `-k => contack (1, 2^(N-1) - k)`
+
+Example: `-3 in 4 bits => 8 - 3 = 5 => 101. contact(1, 101) => 1101`
+
+![Picture](https://github.com/kotsky/py-libs/blob/master/additional_data/pictures/bit_manipulation_1.png)
+
+Try to use info about "base of 2" to solve your problems: use `% 2` and `// 2` with its immediate process operation instead saving bits into an array list.
+
+### Right shifts
+Arithmetic right shift: `a >> 1` shift by 1 bit and fill sign bit with same value. So the results is to divide on 2, or `-75 >> 1 => -38`.
+Logic right shift: `a >>> 1` shift by 1 bit and fill the most left bit spot with 0. So `-75 >>> 1 => 90`.
+
 
 ## Dynamic Programming
+
+[Dynamic Programming Problems](https://github.com/kotsky/programming-exercises/tree/master/Dynamic%20Programming)
+
+## Dynamic Programming
+
 Dynamic Programming is the method of solving tasks, when you solve subtasks of this main task and 
 store results at some array/data str. And reuse it when need.
 
@@ -502,6 +545,52 @@ store results at some array/data str. And reuse it when need.
 - Store max/min/special values in the same size array/matrix and use them for next steps/calculation.
 - Store indexes to track (sequence problem) -> like what happens if that element at that index is included in the finale sequence?
 
+### Tips
+When you have a task to compare 2 strings/arrays, to find there special subsequences or whatever, try to build 2D matrix to solve index by index. Find pattern and return last element of the matrix, or use backtrack to build a certain sequence.
+
+### Examples:
+- Min Number of Exchange - you need to split amount `n` with coin denominations. So, you start solving from `n = 0` until its `n` value. Try to define a pattern. Focus on denoms and their value. How they impact on the result?
+- Min Jumps to Reach the End - is okay to solve with DP (standard technique[, but there is a smart way.
+Count, how many steps you have from an actual number. Then track the max how far you can jump using next jump + these current steps. Once you exceed steps, update it by subtract your current position with max possible reached by you & jump += 1.
+When you have the results, which depends on 2 inputs -> build matrix.
+- Min Number of Edit / Levenshtein Distance (2 strings) - build a matrix of same size by row and column for 2 input strings/arrays which are given to compare. Let matrix[i][j] - number of edits at i and j indexes. 
+Then matrix[i-1][j] is delete letter at string-i, matrix[i][j-1] means delete letter ar string-j and matrix[i-1][j-1] means swap letters between 2 strings.
+- [Knapsack Problem](https://github.com/kotsky/programming-exercises/blob/master/Dynamic%20Programming/Knapsack%20Problem.py) - to find out max possible value of items, which you can put into a bag with certain capacity (2 inputs: value and weight of items + bag capacity) -> build matrix of capacity(items) and track value/cap for each next solution. Then, do backtrack to count your items.
+- When you have certain problem to calculate something to the left and to the right from an idx in array, you can calculate its left solution by traversing from the left to the right, and then its right solution by traversing from the right to the left. 
+Then, combine these 2 results into one finale cell. [Water Area](https://github.com/kotsky/programming-exercises/blob/master/Dynamic%20Programming/Water%20Area.py)
+- [Max Profit with K Operation](https://github.com/kotsky/programming-exercises/blob/master/Dynamic%20Programming/Max%20Profit%20With%20K%20Transactions.py) - try to come up with idea, that at first you have `0` at your balance, then at some day you buy stock (track the min sum you spent to buy stocks), and then calculate max profit per each next index.
+- [Min String Cut to have palindromes](https://github.com/kotsky/programming-exercises/blob/master/Dynamic%20Programming/Palindrome%20Partitioning%20Min%20Cuts.py) 
+Build a matrix, which contains info about if at that index this substring is a palindrome at each index. Then, With new array, check how you can cut string on palindromes. If you find a palindrome, then you have 0 cuts at that particular index.
+- [Longest Increasing Subsequence](https://github.com/kotsky/programming-exercises/blob/master/Dynamic%20Programming/Longest%20Increasing%20Subsequence.py)
+Here, use additional array to track idx before in sequences. There are 2 methods: for loop with nested for loop to identify max sequence from solutions before; 2) build an array, where you store temporary values and try insert new number into that array -> if is possible to insert, replace number at that index by its new number and grab info of replaced number (info about what idx/num was before in sequence of replaced number). 
+Use binary search for log(N) idx search of replacement.
+
+TBD
+
+## Back Tracking
+
+TBD
+
+## Recursion
+
+TBD
+
+## Math and Logic
+
+In many tasks to identify uncommon sample, try to assign special attribute or unique numbers to each sample so once you measure it, you can identify this special sample with some math operation. For instance, binary representation of each sample can give fast result of poisoned one.
+
+### Basics
+Any number can be combined by multiplication of prime numbers.
+`Any number = 2^(a1) * 3^(a2) * 5^(a3) *...`
+
+To check if a number is prime, define a * b = n and check for a <= sqrt(n) if number % a. Don't need to explore b, because it gives the same answer as a.
+
+#### Probability AND: P(A + B) = P(B given A) * P(A)
+![Picture](https://github.com/kotsky/py-libs/blob/master/additional_data/pictures/probability_and.png)
+
+#### Probability OR: P(A or B) =  P(A) + P(B) - P(A and B)
+![Picture](https://github.com/kotsky/py-libs/blob/master/additional_data/pictures/probability_or.png)
+=======
 ### Examples:
 - Min Number of Exchange - you need to split amount `n` with coin denominations. So, you start solving from `n = 0` until its `n` value. Try to define a pattern. Focus on denoms and their value. How they impact on the result?
 - Min Number of Edit / Levenshtein Distance - build a matrix of same size by row and column for 2 input strings/arrays which are given to compare. Let matrix[i][j] - number of edits at i and j indexes. 
@@ -510,24 +599,6 @@ Then matrix[i-1][j] is delete letter at string-i, matrix[i][j-1] means delete le
 Count, how many steps you have from an actual number. Then track the max how far you can jump using next jump + these current steps. Once you exceed steps, update it by subtract your current position with max possible reached by you & jump += 1.
 
 TBD
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 # Algorithms
@@ -572,5 +643,4 @@ Refer to [Singly Linked List](https://github.com/kotsky/py-libs/blob/master/data
 
 ## Fancy Algorithms
 - [Topological Sort](https://github.com/kotsky/py-libs/blob/master/algorithms/topological_sort.py)
-- Dijkstra Algorithm
-
+- [Dijkstra Algorithm](https://github.com/kotsky/py-libs/blob/master/algorithms/dijkstras_algorithm.py)
