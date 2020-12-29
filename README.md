@@ -642,5 +642,6 @@ Refer to [Singly Linked List](https://github.com/kotsky/py-libs/blob/master/data
 - Merge Sorted Arrays in O(N*log(K) + K) Time / O(N + K) Time, where N - total number of elements and K - number of subarrays.
 
 ## Fancy Algorithms
-- [Topological Sort](https://github.com/kotsky/py-libs/blob/master/algorithms/topological_sort.py)
-- [Dijkstra Algorithm](https://github.com/kotsky/py-libs/blob/master/algorithms/dijkstras_algorithm.py)
+- [Topological Sort](https://github.com/kotsky/py-libs/blob/master/algorithms/topological_sort.py) - graph - to return correct order of job accomplishment, when each job can be completed if few others were completed.
+- [Dijkstra Algorithm](https://github.com/kotsky/py-libs/blob/master/algorithms/dijkstras_algorithm.py) - graph - to return the shortest paths from a stat node to all other nodes, if it takes some time/length/weight to move from one node to another one (int positive).
+- [A Star Algorithm](https://github.com/kotsky/py-libs/blob/master/algorithms/a_star_algorithm.py) - graph - to return the shortest path from a start point to the end point on a grid (matrix) with obstacles, based on certain score of each node and the order of exploring these nodes.

@@ -1,11 +1,11 @@
-''' Bit manipulation functions
+""" Bit manipulation functions
 
 	1. COnvert 0.72 to its binary representation in 32 bits.
 	float_number_from_0_to_1_convert_to_binary_str(number, 32)
 	
 	
 
-'''
+"""
 
 
 def float_number_from_0_to_1_convert_to_binary_str(float_number, number_of_bits):

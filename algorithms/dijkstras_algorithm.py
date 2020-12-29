@@ -1,4 +1,4 @@
-'''Dijkstras Algorithm for positive weights
+"""Dijkstras Algorithm for positive weights - find the sortest paths to each node
 
 We have verteces with their edges, given in adjustent list "edges", where
 each idx relates to its node = 0 -> len(edges)-1. There are destination and
@@ -23,13 +23,31 @@ To grab the closest node, we use min_heap which gives O(log(N)) time
 of grabbing the closest node to current node. Every time we reduce 
 min_heap by exploring nodes, so we don't explore them again.
 
+Instruction:
+	1. Creat data structures: 1) visited{} to track visited node and 
+	their min length; 2) min_heap[] to track min current path.
+	2. Start from start node 	-> add to visited;
+								-> compare with others node based on dependencies
+	3. Get min from min Heap and its idx and start exploring this new node.
+	4 Repeat
 
 Example:
-	start = 0
-	edges = [[[1, 7]], [[2, 6], [3, 20], [4, 3]], [[3, 14]], [[4, 2]], [], []]
+	start = 0	# start node
+	edges = [
+	[[1, 7]], # node 0: 0->1 with weight 7
+	[[2, 6], [3, 20], [4, 3]], # node 1: 1->2 with 6, 1->3 with 20, etc
+	[[3, 14]], # node 2
+	[[4, 2]], # node 3
+	[], # node 4
+	[]] % node 5
 	print(dijkstras_algorithm(start, edges))
-'''
+	
+	# ============ Output
+	[0, 7, 27, 10, -1]
+"""
 
+# O(v + e) * log(v) Time / O(v) Space, where
+# v - number of nodes, e - dependencies/edges
 
 def dijkstras_algorithm(start, edges):
 
