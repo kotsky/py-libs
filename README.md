@@ -532,14 +532,18 @@ Arithmetic right shift: `a >> 1` shift by 1 bit and fill sign bit with same valu
 Logic right shift: `a >>> 1` shift by 1 bit and fill the most left bit spot with 0. So `-75 >>> 1 => 90`.
 
 
+## Recursion
+
+The best way to understand if the problem f(n) can be solved with recursion, is it try to solve f(n-1) / f(1) and then f(n-2) / f(2) accordingly. Can we solve the problem by solving its subproblems?
+
+In addition to esimation of big O Time complexity: if recursion splits function on X other subproblem, then you might have O(X^N) Time. Draw recursion tree to estimate it.
+
 ## Dynamic Programming
 
 [Dynamic Programming Problems](https://github.com/kotsky/programming-exercises/tree/master/Dynamic%20Programming)
 
-## Dynamic Programming
-
 Dynamic Programming is the method of solving tasks, when you solve subtasks of this main task and 
-store results at some array/data str. And reuse it when need.
+store results at some array/data str (caching). And reuse it when it's needed (*next recursive call).
 
 ### Few main technics:
 - Store max/min/special values in the same size array/matrix and use them for next steps/calculation.
@@ -565,15 +569,6 @@ Build a matrix, which contains info about if at that index this substring is a p
 Here, use additional array to track idx before in sequences. There are 2 methods: for loop with nested for loop to identify max sequence from solutions before; 2) build an array, where you store temporary values and try insert new number into that array -> if is possible to insert, replace number at that index by its new number and grab info of replaced number (info about what idx/num was before in sequence of replaced number). 
 Use binary search for log(N) idx search of replacement.
 
-TBD
-
-## Back Tracking
-
-TBD
-
-## Recursion
-
-TBD
 
 ## Math and Logic
 
@@ -600,24 +595,106 @@ Count, how many steps you have from an actual number. Then track the max how far
 
 TBD
 
+## Object-Oriented Design
+
+This stack of ploblems is to understand your programming style.
+
+Question: design a coffee maker. 
+Steps to solve it:
+1. Gather more about the target object: what, when, who, where, when, how, why? -> 1) is it single coffee machine for a small group of people for just simple black coffee? 2) is it massive restaurant service for hundreds of customers per hour?
+2. Define the core objects: like Table, Order, Server, Guest, etc.
+3. Define relationships between classes: which class relies on other?
+4. Investigate Actions: what each object/class/entety perform in your system. Here my find out new classes which your forgot to include into your design: Reservation.
+
+### [Py docs regarding classes implementation](https://docs.python.org/3/tutorial/classes.html)
+
+Interesting key points:
+- Name mangling is helpful for letting subclasses override methods without breaking intraclass method calls. For example:
+```
+class Mapping:
+    def __init__(self, iterable):
+        self.items_list = []
+        self.__update(iterable)
+
+    def update(self, iterable):
+        for item in iterable:
+            self.items_list.append(item)
+
+    __update = update   # private copy of original update() method
+
+class MappingSubclass(Mapping):
+
+    def update(self, keys, values):
+        # provides new signature for update()
+        # but does not break __init__()
+        for item in zip(keys, values):
+            self.items_list.append(item)
+```
+- You can create your class iteration way:
+```
+class Reverse:
+    """Iterator for looping over a sequence backwards."""
+    def __init__(self, data):
+        self.data = data
+        self.index = len(data)
+
+    def __iter__(self):
+        return iter(self.data)
+
+
+rev = Reverse("spam")
+for l in rev: # instead of rev.data
+    print(l)
+"""
+s
+p
+a
+m
+"""
+```
+Or with next()
+```
+class Reverse:
+    """Iterator for looping over a sequence backwards."""
+    def __init__(self, data):
+        self.data = data
+        self.index = len(data)
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.index == 0:
+            raise StopIteration
+        self.index = self.index - 1
+        return self.data[self.index]
+```
+
+
 
 # Algorithms
 ## Sort
 ### [Array Sort](https://github.com/kotsky/py-libs/blob/master/algorithms/sort/array_sort_algorithms.py)
-- Merge Sort
+- Merge Sort -> copy array and go recursively to 2 elements, sort them and then merge with others during returning from the recursion.
 - Heap Sort
-- Quick Sort
+- Quick Sort -> pivot + 2 pointers -> we search the pivot placement in an array like if this array would be sorted.
 - Selection Sort
 - Insertion Sort
 - Bubble Sort
+
 ### Linked Lists Sort 
 Refer to [Singly Linked List](https://github.com/kotsky/py-libs/blob/master/data_structures/linked_lists/singly_linked_list.py) and [Doubly  Linked List](https://github.com/kotsky/py-libs/blob/master/data_structures/linked_lists/doubly_linked_list.py) to find sort methods out.
 
 ## Search
 ### [Array Search Algorithms](https://github.com/kotsky/py-libs/blob/master/algorithms/search/array_search_algorithms.py)
 - Binary Search -> to find an element in a sorted array
-- Quick Select -> to find kth smallest element in the array
+- Quick Select -> to find kth smallest element in the array -> we search the pivot placement in an array like if this array would be sorted.
+There are 3 conditions for left_pointer, right_pointer and pivot:
+1) if A[l] > A[p] > A[r] => swap(l, r)
+2) if A[l] <= A[p] => l++
+3) of A[r] >= A[p] => r--
 - Search In Sorted Matrix -> to find an element in a sorted matrix
+
 ### String Search
 - [Knuth Morris Pratt](https://github.com/kotsky/py-libs/blob/master/algorithms/search/knuth_morris_pratt.py) -> to define if "string" contains "substring" in O(N + M) time and O(M) space complexity.
 - [Multi String Search](https://github.com/kotsky/py-libs/blob/master/algorithms/search/string_search_algorithms.py) -> find if `strings` are in `big_string` in O(NS + BS) Time and O(NS) Space, where N - number of substrings in small_strings, S - largest len element in small_strings, B - len of big_string.
@@ -627,6 +704,9 @@ Refer to [Singly Linked List](https://github.com/kotsky/py-libs/blob/master/data
 ### [Create BST from a sorted array](https://github.com/kotsky/py-libs/blob/master/algorithms/transformation/array_transformation_functions.py)
 ### [Create DLL from BT: from left to right](https://github.com/kotsky/py-libs/blob/master/algorithms/transformation/bt_transformation_functions.py) with flatten_binary_tree()
 ### [Invert BT](https://github.com/kotsky/py-libs/blob/master/algorithms/transformation/bt_transformation_functions.py) with invert_binary_tree()
+### [](https://github.com/kotsky/py-libs/blob/master/algorithms/transformation/types_transformation.py)
+- Input string '[10, 20, 30], 2' => output array=[10, 20, 30], k=2
+
 
 ## Traversal
 ### [Binary Tree Traversal](https://github.com/kotsky/py-libs/blob/master/algorithms/binary_tree_traversal.py)
@@ -645,3 +725,7 @@ Refer to [Singly Linked List](https://github.com/kotsky/py-libs/blob/master/data
 - [Topological Sort](https://github.com/kotsky/py-libs/blob/master/algorithms/topological_sort.py) - graph - to return correct order of job accomplishment, when each job can be completed if few others were completed.
 - [Dijkstra Algorithm](https://github.com/kotsky/py-libs/blob/master/algorithms/dijkstras_algorithm.py) - graph - to return the shortest paths from a stat node to all other nodes, if it takes some time/length/weight to move from one node to another one (int positive).
 - [A Star Algorithm](https://github.com/kotsky/py-libs/blob/master/algorithms/a_star_algorithm.py) - graph - to return the shortest path from a start point to the end point on a grid (matrix) with obstacles, based on certain score of each node and the order of exploring these nodes.
+
+
+
+
