@@ -34,7 +34,7 @@ In this package I provide a description of different data structures and algorit
 
 ###
 ## [Algorithms](https://github.com/kotsky/py-libs#algorithms)
-1. [Sort](https://github.com/kotsky/py-libs#sort)
+1. [Sort](https://github.com/kotsky/py-libs#sort-1)
 	1. Array Sort
 	2. Linked List Sort
 2. [Search](https://github.com/kotsky/py-libs#search)
@@ -75,13 +75,14 @@ Once we exceed array limit of storing data, we double its size and searching for
 DOn't forget to use method .copy() when you need to duplicate an array, because Python is full of pointers.
 
 1. Sorted Arrays
+
 Use a property of sorted arrays with 2 pointers or binary search.
 - Find elements, sum of each equal to certain target number - 2 pointers.
 - Binary Search to find an element in O(log(N)) time.
 - Merge sorted arrays -> find more in Binary Heaps.
 
 2. Arrays
-- Use hash tables in case you need to find certain pair of elements in linear time. Also, hash tables can be used to find sequences in the array, where value in key-value points to `next_node`.
+- Use hash tables in case you need to find certain pair of elements in constant time. Also, hash tables can be used to find sequences in the array, where value in key-value points to `next_node`.
 - Find duplicates:
 	- with hast table
 	- sort arrays and find next same element
@@ -366,7 +367,7 @@ In this tree each node has max 2 childs. More in BST.
 	- iteratively with stack 
 - breadth first search (BFS) - explore neighbours before their childs
 - [Traversal methods](https://github.com/kotsky/py-libs/blob/master/algorithms/binary_tree_traversal.py)
-- When you explore some path, you might try to represent it as a LL or an array. This might be helpful it problems of sum tracking in BT.
+- When you explore some path, you might try to represent it as a LL or an array. This might be helpful in problems of sum tracking in BT.
 - To defined if bt_one is a subtree of bt_two 
 	- do pre-order traversal (with includidng NULL nodes as some symbol `X`), which gives same result for the subtree and the tree if they are same by structure and values -> then do array matching.
 	- alternative: call at each node match function. There is trade off between space and time complexities in v1 and v2. Discuss it.
@@ -415,7 +416,7 @@ Its implementation done by using an array structure.
 [Min-Heap implementation](https://github.com/kotsky/py-libs/blob/master/data_structures/heaps.py)
 Methods: `insert()`, `pop()`, `peek()` and `is_empty()`
 #### Max-Heap
-[Min-Heap implementation](https://github.com/kotsky/py-libs/blob/master/data_structures/heaps.py)
+[Max-Heap implementation](https://github.com/kotsky/py-libs/blob/master/data_structures/heaps.py)
 Methods: `insert()`, `pop()`, `peek()` and `is_empty()`
 #### Continuous Median Handler
 The point is to track a median during adding more elements to the array.
@@ -451,10 +452,10 @@ There are:
 - Prefix Trie (build Trie from the beggining of the string)
 - Suffix Trie (build Trie from the end of the string)
 ```
-	root->	babc
-			 abc
-			  bc
-			   c
+	root->		babc
+				abc
+				bc
+				c
 
 ```
 Find its implementation here [Tries](https://github.com/kotsky/py-libs/blob/master/data_structures/tries.py)
@@ -479,7 +480,8 @@ There are 2 types of graph representation:
 The most common ways of searching in graphs are:
 - depth first search (DFS) - explore each branch before changing to other branch
 - breadth first search (BFS) - explore neighbours before their childs
-BSF is great to find the shortest path, but DFS is easier to implement.
+
+BFS is great to find the shortest path, but DFS is easier to implement.
 DFS is implemented recursively, and BFS uses Queue.
 Take a note, that in graphs we have to track which nodes we already visited before. In some problems, we might need track nodes as visited before and visiting right now.
 - bidirectional search - BFS from 2 graphs source to define node of their collision. 
@@ -499,7 +501,7 @@ Also, it can be useful to explore how nodes relate to each others to build certa
 For instance, [Topological Sort](https://github.com/kotsky/py-libs/blob/master/algorithms/topological_sort.py) solves the problem, where we have to understand in which order we have to complete jobs, assuming that some jobs can be completed only after others.
 
 Another usage can be found in matrices. You can imagine it as maps problems - find a path from something to somethings, or explore a path and define if this path is what you are looking for.
-For instance, 
+
 
 ### Fancy Graphs
 #### [Airport Connections](https://github.com/kotsky/programming-exercises/blob/master/Graph/Airport%20Connections.py)
@@ -512,7 +514,9 @@ For instance,
 [Bit Manipulation Problems](https://github.com/kotsky/programming-exercises/tree/master/Bit%20Manipulation)
 
 Indicators:
+
 ^ - XOR
+
 ~ - NOT
 
 ### Tips

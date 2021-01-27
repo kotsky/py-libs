@@ -5,6 +5,31 @@
 [1, 2, 5, 5, 10, 15, 22] in_order_traverse
 [10, 5, 2, 1, 5, 15, 22] pre_order_traverse
 [1, 2, 5, 5, 22, 15, 10] post_order_traverse
+
+
+root = TreeNode(10)
+root.left = TreeNode(7)
+root.right = TreeNode(12)
+root.left.left = TreeNode(5)
+root.left.right = TreeNode(8)
+root.right.right = TreeNode(20)
+root.left.left.right = TreeNode(6)
+root.left.left.right.left = TreeNode(5.5)
+root.right.left = TreeNode(11)
+
+             10
+           /    \
+          7     12
+         / \    / \
+        5   8  11  20
+         \
+          6
+         /
+        5.5
+
+# in_order_traverse_iterative(root)  # 5 5.5 6 7 8 10 12 20
+# dfs_traverse_iterative(root)    # 10 7 5 6 5.5 8 12 11 20 
+
 '''
 
 # Visit left branch, then current node 
@@ -39,3 +64,31 @@ def post_order_traverse(tree, array):
         post_order_traverse(tree.right, array)
     array.append(tree.value)
     return array
+
+
+def dfs_traverse_iterative(node):
+    stack = [node]
+    # node_to_explore = node
+    while stack:
+        node_to_explore = stack.pop()
+        print(node_to_explore.value, end=" ")
+        if node_to_explore.right is not None:
+            stack.append(node_to_explore.right)
+        if node_to_explore.left is not None:
+            stack.append(node_to_explore.left)
+
+
+def in_order_traverse_iterative(node):
+    stack = []
+    node_to_explore = node
+    while True:
+        if node_to_explore is not None:
+            stack.append(node_to_explore)
+            node_to_explore = node_to_explore.left
+        else:
+            if stack:
+                node_to_explore = stack.pop()
+                print(node_to_explore.value, end=" ")
+                node_to_explore = node_to_explore.right
+            else:
+                break
