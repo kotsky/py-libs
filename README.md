@@ -1,5 +1,5 @@
 # py-libs
-Custom Python libs and learnings.
+Custom Python 3 libs and learnings.
 
 In this package I provide a description of different data structures and algorithms with my own implementation and usage cases.
 # Content
@@ -57,6 +57,9 @@ In this package I provide a description of different data structures and algorit
 	2. Dijkstra Algorithm
 ###
 
+
+## Useful links
+- [Spacial and Magic inbuild methods to make your object better](https://holycoders.com/python-dunder-special-methods/)
 
 
 # Data Structures
@@ -402,7 +405,7 @@ There are the follows:
 - [BST validation](https://github.com/kotsky/py-libs/blob/master/algorithms/validation/bst_validation.py)
 - Find out the min depth from a sorted array - or build a balanced BST or check it's depth by number of recursive calls.
 There are several things to keep tracking: 1) return root node as your output; 2) track parent node and how did you come to the current node (from the left or from the right?).
-In majority, recursion helps to solve GST problems.
+In majority, recursion helps to solve BST problems.
 - Convert BST to all possible arrays - recursive call at each node to merge in different ways arrays from child nodes with parent node.
 - Return Random Node - track how many each node has childs, total size of BST and from that calculate probability of returning certain node.
 
@@ -413,10 +416,11 @@ Min-Heap and Max-Heap are a complete Binary Tree.
 In Min-Heap parent node has lower value than its child nodes. But in Max-Heap child nodes has bigger value then their parent node.
 Its implementation done by using an array structure.
 #### Min-Heap
-[Min-Heap implementation](https://github.com/kotsky/py-libs/blob/master/data_structures/heaps.py)
+[Min-Heap Array implementation](https://github.com/kotsky/py-libs/blob/master/data_structures/heaps/heaps_array_implementation.py)
+[Min-Heap Tree implementation](https://github.com/kotsky/py-libs/blob/master/data_structures/heaps/heaps_tree_implementation.py)
 Methods: `insert()`, `pop()`, `peek()` and `is_empty()`
 #### Max-Heap
-[Max-Heap implementation](https://github.com/kotsky/py-libs/blob/master/data_structures/heaps.py)
+[Min-Heap Array implementation](https://github.com/kotsky/py-libs/blob/master/data_structures/heaps/heaps_array_implementation.py)
 Methods: `insert()`, `pop()`, `peek()` and `is_empty()`
 #### Continuous Median Handler
 The point is to track a median during adding more elements to the array.
@@ -443,6 +447,139 @@ There are listed few examples:
 
 
 ###
+### AVL Tree
+
+AVL tree is a self-balancing binary search tree in which each node maintains extra information called a balance factor whose value is either -1, 0 or +1.
+Balance factor of a node in an AVL tree is the difference between the height of the left subtree and that of the right subtree of that node.
+Balance Factor = (Height of Left Subtree - Height of Right Subtree) or (Height of Right Subtree - Height of Left Subtree)
+![Picture](https://github.com/kotsky/py-libs/blob/master/additional_data/pictures/avl_tree.png)
+
+#### Complexity
+Insertion	Deletion	Search
+O(log n)	O(log n)	O(log n)
+
+#### AVL Tree Applications
+- For indexing large records in databases
+- For searching in large databases
+
+
+###
+### B-tree
+
+B-tree is a special type of self-balancing search tree in which each node can contain more than one key and can have more than two children.
+
+![Picture](https://github.com/kotsky/py-libs/blob/master/additional_data/pictures/b_tree.png)
+
+#### Complexity
+- Insertion	O(log n) Time / O(n) Space
+- Deletion	O(log n) best / O(n) avg Time / Space
+- Search	O(log n) Time / Space
+
+#### Usage
+The need for B-tree arose with the rise in the need for lesser time in accessing the physical storage media like a hard disk. The secondary storage devices are slower with a larger capacity. There was a need for such types of data structures that minimize the disk accesses.
+
+Other data structures such as a binary search tree, avl tree, red-black tree, etc can store only one key in one node. If you have to store a large number of keys, then the height of such trees becomes very large and the access time increases.
+
+However, B-tree can store many keys in a single node and can have multiple child nodes. This decreases the height significantly allowing faster disk accesses.
+
+
+#### B-tree Properties
+- All leaf nodes have same depth.
+- Internal node has max (n-1) keys.
+- All node have max n childs and n/2 min childs.
+- There is addition bit info, which says "True" if the node is leaf, "False" if not.
+- h = log((n-1)/2)
+- Root node has at least 2 child and min 1 key.
+
+
+#### B Tree Applications
+- databases and file systems
+- to store blocks of data (secondary storage media)
+- multilevel indexing
+
+
+### B+ tree
+
+B+ tree is advanced b-tree, which is faster and easier to insert/search/delete. All values are contained in leaf nodes, which are multileveled indexed.
+There is a linear traversing through the keys in node to find out where to move next. We can optimise that search via binary search.
+
+![Picture](https://github.com/kotsky/py-libs/blob/master/additional_data/pictures/b_plus_tree.png)
+
+#### Complexity
+- Insertion	O(t * log n) Time / O(n) Space
+- Deletion	O(t * log n) best / O(n) avg Time & Space
+- Search	O(t * log_t(n)) Time / O(log(n)) Space OR if binary search is applied => O(log(t) * log_t(n)) Time / O(log(n))
+where t - time complexity of linear search on disk through keys in the node.
+
+
+#### B+ tree Properties
+- All leaves are at same level.
+- All leaves are connected.
+- Root node has at least 2 child.
+- Node has max m childs and min m/2.
+- Node has max (m-1) keys and min m/2-1. 
+
+
+#### B+ Tree Applications
+- Multilevel Indexing
+- Faster operations on the tree (insertion, deletion, search)
+- Database indexing
+
+
+### Red-Black Tree
+
+[Red-Black Tree Implementation](https://github.com/kotsky/py-libs/blob/master/data_structures/trees/red_black_tree.py)
+
+Another type of self-balanced tree, which is a modified version of normal BST but with 1 addition bit of info - color: RED or BLACK.
+Difference with AVL tree - Red-Black tree is less balanced than AVL tree, but it requires lesser time for re-balancing.
+RB tree is great for higher frequency data storing, when there are a lot of inserting/deleting.
+AVL tree is great when you have a large dataset and you have mainly search.
+
+![Picture](https://github.com/kotsky/py-libs/blob/master/additional_data/pictures/red_black_tree.png)
+
+#### Complexity
+Insertion	Deletion	Search
+O(log n)	O(log n)	O(log n)
+
+
+#### Red-Black Tree Properties
+- All nodes or RED or BLACK.
+- Root node is always BLACK.
+- Leaves (NUL nodes) are always BLACK.
+- Number of BLACK nodes from each node to any its NUL nodes is the same. 
+- RED node has only BLACK childs.
+
+
+#### Red-Black Tree Applications
+- To implement finite maps
+- To implement Java packages: java.util.TreeMap and java.util.TreeSet
+- To implement Standard Template Libraries (STL) in C++: multiset, map, multimap
+- In Linux Kernel
+
+
+### Splay Tree
+
+This is a binary search self-balanced tree, which returns to root node any node, which was just recently inserted/searched, without breaking BST properties.
+If the next lookup request is for the same element, it can be returned immediately.
+
+#### Complexity
+Importantly, splay trees offer amortized O(log(n)) performance; a sequence of M operations on an n-node splay tree takes O(M * log(n)) time.
+
+#### Usage
+
+A splay tree is an efficient implementation of a balanced binary search tree that takes advantage of locality in the keys used in incoming lookup requests. 
+For many applications, there is excellent key locality. A good example is a network router. 
+A network router receives network packets at a high rate from incoming connections and must quickly decide on which outgoing wire to send each packet, based on the IP address in the packet. 
+The router needs a big table (a map) that can be used to look up an IP address and find out which outgoing connection to use. 
+If an IP address has been used once, it is likely to be used again, perhaps many times. Splay trees can provide good performance in this situation.
+
+#### Splay Tree Applications:
+- Network router
+- Recent look-up
+
+
+
+###
 ### Tries
 Trie is a tree data structure to store characters at each node. Trie has one root node, multiple child nodes and might have end node, which can be presented as some special symbol, like `*`, and can indicate complete words.
 
@@ -453,9 +590,9 @@ There are:
 - Suffix Trie (build Trie from the end of the string)
 ```
 	root->		babc
-				abc
-				bc
-				c
+			abc
+			bc
+			c
 
 ```
 Find its implementation here [Tries](https://github.com/kotsky/py-libs/blob/master/data_structures/tries.py)
@@ -589,13 +726,6 @@ To check if a number is prime, define a * b = n and check for a <= sqrt(n) if nu
 
 #### Probability OR: P(A or B) =  P(A) + P(B) - P(A and B)
 ![Picture](https://github.com/kotsky/py-libs/blob/master/additional_data/pictures/probability_or.png)
-=======
-### Examples:
-- Min Number of Exchange - you need to split amount `n` with coin denominations. So, you start solving from `n = 0` until its `n` value. Try to define a pattern. Focus on denoms and their value. How they impact on the result?
-- Min Number of Edit / Levenshtein Distance - build a matrix of same size by row and column for 2 input strings/arrays which are given to compare. Let matrix[i][j] - number of edits at i and j indexes. 
-Then matrix[i-1][j] is delete letter at string-i, matrix[i][j-1] means delete letter ar string-j and matrix[i-1][j-1] means swap letters between 2 strings.
-- Min Jumps to Reach the End - is okay to solve with DP (standard technique[, but there is a smart way.
-Count, how many steps you have from an actual number. Then track the max how far you can jump using next jump + these current steps. Once you exceed steps, update it by subtract your current position with max possible reached by you & jump += 1.
 
 TBD
 
