@@ -380,7 +380,7 @@ In this tree each node has max 2 childs. More in BST.
 Binary Search Tree (BST) has the following condition: 
 `node.left.value < node.value <= node.right.value`.
 
-[Binary Search Tree implementation](https://github.com/kotsky/py-libs/data_structures/bst.py)
+[Binary Search Tree implementation](https://github.com/kotsky/py-libs/data_structures/trees/bst.py)
 ```
 class Node:
     def __init__(self, value):
@@ -448,6 +448,8 @@ There are listed few examples:
 
 ###
 ### AVL Tree
+
+[Implementation](https://github.com/kotsky/py-libs/tree/master/data_structures/trees/avl_tree.py)
 
 AVL tree is a self-balancing binary search tree in which each node maintains extra information called a balance factor whose value is either -1, 0 or +1.
 Balance factor of a node in an AVL tree is the difference between the height of the left subtree and that of the right subtree of that node.
@@ -528,7 +530,7 @@ where t - time complexity of linear search on disk through keys in the node.
 
 ### Red-Black Tree
 
-[Red-Black Tree Implementation](https://github.com/kotsky/py-libs/blob/master/data_structures/trees/red_black_tree.py)
+[Implementation](https://github.com/kotsky/py-libs/blob/master/data_structures/trees/red_black_tree.py)
 
 Another type of self-balanced tree, which is a modified version of normal BST but with 1 addition bit of info - color: RED or BLACK.
 Difference with AVL tree - Red-Black tree is less balanced than AVL tree, but it requires lesser time for re-balancing.
@@ -559,6 +561,8 @@ O(log n)	O(log n)	O(log n)
 
 ### Splay Tree
 
+[Implementation](https://github.com/kotsky/py-libs/tree/master/data_structures/trees/splay_tree.py)
+
 This is a binary search self-balanced tree, which returns to root node any node, which was just recently inserted/searched, without breaking BST properties.
 If the next lookup request is for the same element, it can be returned immediately.
 
@@ -576,7 +580,6 @@ If an IP address has been used once, it is likely to be used again, perhaps many
 #### Splay Tree Applications:
 - Network router
 - Recent look-up
-
 
 
 ###

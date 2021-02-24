@@ -68,11 +68,8 @@ class AVLTree(object):
         self.printHelper(self.root, "", True)
         return ""
 
-    def __len__(self):
-        return self.size
-
     def insert(self, key):
-        self.size += 1
+        # self.size += 1
         if self.root is not None:
             self.insert_node(self.root, key)
         else:
